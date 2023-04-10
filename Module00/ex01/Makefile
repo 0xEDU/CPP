@@ -7,7 +7,7 @@ SRCS =	main.cpp \
 		PhoneBook.cpp \
 		Contacts.cpp
 
-OBJS = ${SRCS:%.c=$(PATH_OBJS)%.o}
+OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
 INCLUDE = -I ./
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
@@ -17,7 +17,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o: $(PATH_SRCS)%.c
+$(PATH_OBJS)%.o: $(PATH_SRCS)%.cpp
 	@mkdir -p $(PATH_OBJS)
 	@c++ $(FLAGS) $(INCLUDE) -c $< -o $@
 	@echo "\033[1;92m[SUCCESS] Object creation done!\033[0m"

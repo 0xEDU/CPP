@@ -6,7 +6,7 @@
 /*   By: edu <etachott@student.42sp.org.br>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 16:44:28 by edu               #+#    #+#             */
-/*   Updated: 2023/03/26 19:51:53 by edu              ###   ########.fr       */
+/*   Updated: 2023/04/10 11:27:05 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,30 @@ void	addContactToList(PhoneBook &phoneBook, int index)
 	phoneBook.contactsList[index].setDarkestSecret(ds);
 }
 
+void	printFormatted(std::string name)
+{
+	int	len = name.length();
+
+	if (len > 10)
+	{
+		name.erase(9, len - 9);
+		name.append(1, '.');
+	}
+	std::cout << std::string(10 - name.length(), ' ') << name << "|";
+}
+
 void	displayContacts(PhoneBook &phoneBook)
 {
 	for (size_t i = 0; i < 8; i++)
 	{
-		std::cout << "---------------------" << std::endl;
-		std::cout << i << "         |";
-		std::cout << phoneBook.contactsList[i].getFirstName() << "|";
-		std::cout << phoneBook.contactsList[i].getLastName() << std::endl;
-		std::cout << phoneBook.contactsList[i].getNickName() << std::endl;
-		std::cout << phoneBook.contactsList[i].getPhoneNumber() << std::endl;
-		std::cout << phoneBook.contactsList[i].getDarkestSecret() << std::endl;
-		std::cout << "---------------------" << std::endl;
+		std::cout << "---------------------------------------------" << std::endl;
+		std::cout << "|";
+		std::cout << "         "<< i << "|";
+		printFormatted(phoneBook.contactsList[i].getFirstName());
+		printFormatted(phoneBook.contactsList[i].getLastName());
+		printFormatted(phoneBook.contactsList[i].getNickName());
+		std::cout << std::endl;
+		std::cout << "---------------------------------------------" << std::endl;
 	}
 }
 
