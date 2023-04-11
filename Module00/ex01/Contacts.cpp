@@ -6,7 +6,7 @@
 /*   By: edu <etachott@student.42sp.org.br>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:32:25 by edu               #+#    #+#             */
-/*   Updated: 2023/03/26 19:33:08 by edu              ###   ########.fr       */
+/*   Updated: 2023/04/11 15:25:47 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 Contacts::Contacts(void)
 {
-	std::cout << "Contacts Constructor called!" << std::endl;
 	return ;
 }
 
@@ -77,6 +76,5 @@ std::string	Contacts::getDarkestSecret(void)
 
 Contacts::~Contacts()
 {
-	std::cout << "Contacts destructor called" << std::endl;
 	return ;
 }

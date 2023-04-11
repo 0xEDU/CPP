@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 20:42:12 by edu               #+#    #+#             */
-/*   Updated: 2023/03/26 19:26:15 by edu              ###   ########.fr       */
+/*   Updated: 2023/04/11 15:21:48 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class	PhoneBook
 {
 	public:
 		PhoneBook();
-		PhoneBook(const PhoneBook &copy);
-		PhoneBook &operator=(const PhoneBook &other);
+		// PhoneBook(const PhoneBook &copy);
+		// PhoneBook &operator=(const PhoneBook &other);
 		~PhoneBook();
 
 		Contacts	contactsList[8];

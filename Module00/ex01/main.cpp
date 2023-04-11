@@ -6,11 +6,12 @@
 /*   By: edu <etachott@student.42sp.org.br>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 16:44:28 by edu               #+#    #+#             */
-/*   Updated: 2023/04/10 12:03:38 by etachott         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:27:19 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cctype>
 #include <iostream>
 #include <string>
 
@@ -75,6 +76,26 @@ void	displayContacts(PhoneBook &phoneBook)
 	}
 }
 
+void	returnIndex(PhoneBook &phoneBook, std::string index)
+{
+	if (index.length() > 1 || std::isalpha(index[0]))
+	{
+		std::cout << "Invalid index!" << std::endl;
+		return ;
+	}
+	if (std::isdigit(index[0]) && (index[0] == char('9') || index[0] == char('8')))
+	{
+		std::cout << "Index out of range!" << std::endl;
+		return ;
+	}
+	std::cout << "Contact:" << std::endl;
+	std::cout << phoneBook.contactsList[index[0] - '0'].getFirstName() << std::endl;
+	std::cout << phoneBook.contactsList[index[0] - '0'].getLastName() << std::endl;
+	std::cout << phoneBook.contactsList[index[0] - '0'].getNickName() << std::endl;
+	std::cout << phoneBook.contactsList[index[0] - '0'].getPhoneNumber() << std::endl;
+	std::cout << phoneBook.contactsList[index[0] - '0'].getDarkestSecret() << std::endl;
+}
+
 int main(void)
 {
 	PhoneBook	phoneBook = PhoneBook();
@@ -84,6 +105,7 @@ int main(void)
 	while (1)
 	{
 		std::string buffer;
+		std::string search_index;
 
 		std::cout << "Please choose one:\nADD | SEARCH | EXIT" << std::endl;
 		getline(std::cin, buffer);
@@ -99,10 +121,13 @@ int main(void)
 		else if (buffer == "SEARCH")
 		{
 			displayContacts(phoneBook);
+			std::cout << "INSERT INDEX: ";
+			getline(std::cin, search_index);
+			returnIndex(phoneBook, search_index);
 		}
 		else if (buffer == "EXIT")
 		{
-			std::cout << "breaking" << std::endl;
+			std::cout << "BYE!!!" << std::endl;
 			break;
 		}
 	}
