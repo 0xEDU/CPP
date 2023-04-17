@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
 
 tests: $(TEST_OBJS)
-	@c++ $(FLAGS) $(TEST_OBJS) -o tests
+	@c++ $(FLAGS) $(TEST_OBJS) $(INCLUDE) -o tests
 
 $(PATH_OBJS)%.o: $(PATH_SRCS)%.cpp
 	@mkdir -p $(PATH_OBJS)
