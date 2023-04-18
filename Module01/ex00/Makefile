@@ -1,9 +1,12 @@
-NAME = Brainz
+NAME = BraiiinnzzZ
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
-SRCS =	main.cpp
+SRCS =	main.cpp \
+		Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
