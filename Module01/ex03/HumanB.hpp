@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 15:39:55 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/20 17:35:29 by etachott         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:19:36 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB
 		~HumanB();
 
 		void	attack(void);
-		void	setWeapon(Weapon weapon);
+		void	setWeapon(Weapon &weapon);
 		
 		Weapon		*weapon;
 		std::string	name;
