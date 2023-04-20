@@ -1,4 +1,4 @@
-NAME = hi_this_is_brain
+NAME = VIOLENCE
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
@@ -11,7 +11,7 @@ SRCS =	main.cpp \
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
 INCLUDE = -I ./
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 
 all: $(NAME)
 

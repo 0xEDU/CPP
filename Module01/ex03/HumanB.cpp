@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 15:42:14 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/20 16:17:58 by etachott         ###   ########.fr       */
+/*   Created: 2023/04/20 15:50:09 by etachott          #+#    #+#             */
+/*   Updated: 2023/04/20 17:48:36 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "HumanB.hpp"
 
-Weapon::Weapon(const std::string type) {
-	this->_type = type;
+HumanB::HumanB(std::string name)
+{
+	this->name = name;
+	this->weapon = 0;
 	return ;
 }
 
-Weapon::~Weapon(void) {
+HumanB::~HumanB(void) {
+	if (this->weapon)
+		delete this->weapon;
 	return ;
 }
 
-const std::string &Weapon::getType(void) {
-	return (this->_type);
+void HumanB::setWeapon(Weapon weapon) {
+	this->weapon = new Weapon(weapon);
+	return ;
 }
 
-void	Weapon::setType(std::string type) {
-	this->_type = type;
+void HumanB::attack(void) {
+	std::cout <<
+		this->name <<
+		" attacks with their " <<
+		this->weapon->getType() << std::endl;
 	return ;
 }
