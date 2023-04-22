@@ -5,8 +5,12 @@ PATH_SRCS = ./
 PATH_TESTS = ./
 PATH_OBJS = ./objects/
 
-SRCS =	main.cpp
-TESTS_SRCS =	tests_main.cpp
+SRCS =	main.cpp \
+		validate_file.cpp \
+		File.cpp
+TESTS_SRCS =	tests_main.cpp \
+				validate_file.cpp \
+				File.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 TESTS_OBJS = ${TESTS_SRCS:%.cpp=$(PATH_OBJS)%.o}
@@ -24,7 +28,7 @@ $(PATH_OBJS)%.o: $(PATH_SRCS)%.cpp
 	@c++ $(FLAGS) $(INCLUDE) -c $< -o $@
 	@echo "\033[1;92m[SUCCESS] Object creation done!\033[0m"
 
-tests: $(TESTS_OBJS)
+tests: $(TESTS_OBJS) all
 	@c++ $(FLAGS) $(TESTS_OBJS) -o $(TESTS)
 	@./$(TESTS)
 
