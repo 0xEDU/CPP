@@ -33,6 +33,7 @@ $(PATH_OBJS)%.o: $(PATH_SRCS)%.cpp
 tests: $(TESTS_OBJS) all
 	@c++ $(FLAGS) $(TESTS_OBJS) -o $(TESTS)
 	@./$(TESTS)
+	@rm -rf $(TESTS)
 
 $(PATH_OBJS)%.o: $(PATH_TESTS)%.cpp
 	@mkdir -p $(PATH_OBJS)
