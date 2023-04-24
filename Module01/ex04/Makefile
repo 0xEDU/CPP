@@ -7,9 +7,11 @@ PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
 		validate_file.cpp \
+		str_replace.cpp \
 		File.cpp
 TESTS_SRCS =	tests_main.cpp \
 				validate_file.cpp \
+				str_replace.cpp \
 				File.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
