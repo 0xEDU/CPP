@@ -2,6 +2,10 @@
 
 #ifndef HARL_HPP
 #define HARL_HPP
+
+#define YELLOW "\033[1;33m" 
+#define END "\033[0m"
+
 #include <string>
 #include <iostream>
 
