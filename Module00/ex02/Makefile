@@ -3,14 +3,10 @@ NAME = accounts
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
-SRCS =	main.cpp \
-		Account.cpp
-
-TEST_SRCS =	tests.cpp \
+SRCS =	tests.cpp \
 		Account.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
-TEST_OBJS = ${TEST_SRCS:%.cpp=$(PATH_OBJS)%.o}
 
 INCLUDE = -I ./
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
@@ -19,9 +15,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
-
-tests: $(TEST_OBJS)
-	@c++ $(FLAGS) $(TEST_OBJS) $(INCLUDE) -o tests
 
 $(PATH_OBJS)%.o: $(PATH_SRCS)%.cpp
 	@mkdir -p $(PATH_OBJS)

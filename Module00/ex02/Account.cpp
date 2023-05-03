@@ -6,11 +6,8 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 22:07:44 by edu               #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/04/17 13:39:30 by etachott         ###   ########.fr       */
-=======
+/*   Updated: 2023/05/03 11:38:47 by etachott         ###   ########.fr       */
 /*   Updated: 2023/04/11 23:43:48 by edu              ###   ########.fr       */
->>>>>>> 6223994a882649bae1dcb0b9a4d9421703e832f0
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +60,9 @@ int Account::getNbAccounts( void ) {
 	return (_nbAccounts);
 }
 
-<<<<<<< HEAD
 int Account::getTotalAmount( void ) {
 	return (_totalAmount);
 }
-=======
-int	Account::getNbAccounts() {
-	return (this->_nbAccounts);
-}
-
-void	Account::displayAccountsInfos() {
->>>>>>> 6223994a882649bae1dcb0b9a4d9421703e832f0
 
 int Account::getNbDeposits( void ) {
 	return (_totalNbDeposits);
