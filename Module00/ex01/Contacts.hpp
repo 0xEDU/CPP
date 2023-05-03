@@ -6,7 +6,7 @@
 /*   By: edu <etachott@student.42sp.org.br>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:11:32 by edu               #+#    #+#             */
-/*   Updated: 2023/03/26 19:33:42 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/03 11:41:06 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 # include <string>
 
-class Contacts
-{
+class Contacts {
 	public:
 		Contacts();
 		Contacts(
@@ -25,8 +24,6 @@ class Contacts
 			std::string nickName,
 			std::string phoneNumber,
 			std::string darkestSecret);
-		Contacts(const Contacts &copy);
-		Contacts &operator=(const Contacts &other);
 		~Contacts();
 		
 		void	setFirstName(std::string firstName);
@@ -40,6 +37,7 @@ class Contacts
 		std::string	getNickName();
 		std::string	getPhoneNumber();
 		std::string	getDarkestSecret();
+
 	private:
 		std::string	_firstName;
 		std::string	_lastName;
