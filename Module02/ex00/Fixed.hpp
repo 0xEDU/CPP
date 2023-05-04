@@ -6,12 +6,14 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:33:39 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/03 15:36:28 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:07:04 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
+
+#include <iostream>
 
 class Fixed {
 	int					value;
