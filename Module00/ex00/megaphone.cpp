@@ -6,17 +6,14 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 18:38:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/03 11:00:01 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:01:46 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-void	to_upper(std::string &str) {
-	int	index;
-
-	for (index = 0; str[index]; index++)
-	{
+void	convert_string(std::string &str) {
+	for (int index = 0; str[index]; index++) {
 		if (!isupper(str[index]))
 			str[index] = (char)toupper(str[index]);
 	}
@@ -24,15 +21,14 @@ void	to_upper(std::string &str) {
 
 int	main(int argc, char *argv[]) {
 	std::string	str;
-	int			index;
 
 	if (argc == 1) {
-		std::cout << "* LOUD AND UNBERABLE FEEDBACK NOISE *" << std::endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (1);
 	}
-	for (index = 1; index < argc; index++) {
+	for (int index = 1; index < argc; index++) {
 		str = argv[index];
-		to_upper(str);
+		convert_string(str);
 		std::cout << str;
 	}
 	std::cout << std::endl;
