@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:15:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/04 13:03:38 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/04 14:41:17 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void) {
 	Fixed		a;
-	Fixed const	b( a );
+	Fixed const	b( 10 );
 	Fixed const	c( 42.42f );
 	Fixed const	d( b );
 
