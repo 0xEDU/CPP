@@ -5,7 +5,9 @@ PATH_TESTS = .
 PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
-		Fixed.cpp
+		bsp.cpp \
+		Fixed.cpp \
+		Point.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 TESTS_OBJS = ${TESTS_SRCS:%.cpp=$(PATH_OBJS)%.o}
