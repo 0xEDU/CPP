@@ -3,7 +3,7 @@
 #ifndef POINT_HPP
 #define POINT_HPP
 
-#include "Fixed.h"
+#include "Fixed.hpp"
 
 class Point {
     Fixed   _x;
