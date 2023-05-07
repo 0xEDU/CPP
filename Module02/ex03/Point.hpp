@@ -15,6 +15,6 @@ class Point {
         Point(const Point &rhs);
         Point &operator=(const Point &rhs);
         ~Point();
-}
+};
 
 #endif
