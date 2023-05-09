@@ -5,6 +5,10 @@
 
 #include "Fixed.hpp"
 
+#define GREEN "\033[1;32m"
+#define RED "\033[1;31m"
+#define END "\033[0m"
+
 class Point {
     Fixed   _x;
     Fixed   _y;
