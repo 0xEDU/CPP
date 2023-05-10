@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:19:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/09 18:39:19 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:38:29 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ class ClapTrap {
 	int			_energyPoints;
 	int			_attackDamage;
 
+	void		pretty_print(std::string action);
+
 	public:
 		ClapTrap();
+		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &);
 		ClapTrap &operator=(const ClapTrap &);
 		~ClapTrap();
