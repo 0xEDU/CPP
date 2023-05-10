@@ -1,11 +1,12 @@
-NAME = claptrap
+NAME = scavtrap
 
 PATH_SRCS = ./
 PATH_TESTS = .
 PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
-		ClapTrap.cpp
+		ClapTrap.cpp \
+		ScavTrap.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 TESTS_OBJS = ${TESTS_SRCS:%.cpp=$(PATH_OBJS)%.o}
