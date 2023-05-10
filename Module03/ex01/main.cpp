@@ -6,45 +6,56 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 16:30:19 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/10 18:08:51 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void) {
-	std::cout << "== ClapTrap operates normally ==" << std::endl;
+	std::cout << "== ScavTrap operates normally ==" << std::endl;
 	{
-		ClapTrap a("Hal");
+		ScavTrap a("Hal");
+		ClapTrap b("Joy");
 
 		a.attack("Atrocitus");
 		a.takeDamage(3);
 		a.beRepaired(5);
+		b.attack("Atrocitus");
+		b.takeDamage(3);
+		b.beRepaired(5);
 	}
-	std::cout << "\n== ClapTrap dies ==" << std::endl;
+	std::cout << "\n== ScavTrap dies ==" << std::endl;
 	{
-		ClapTrap a("Guy");
+		ScavTrap a("Guy");
 
 		a.attack("Parallax");
-		a.takeDamage(10);
+		a.takeDamage(110);
 		a.beRepaired(5);
 	}
-	std::cout << "\n== ClapTrap attacks and is out of energy ==" << std::endl;
+	std::cout << "\n== ScavTrap attacks and is out of energy ==" << std::endl;
 	{
-		ClapTrap a("John");
+		ScavTrap a("John");
 
-		for (int i = 0; i < 11; i++) {
+		for (int i = 0; i < 51; i++) {
 			a.attack("Sinestro");
 		}
 	}
-	std::cout << "\n== ClapTrap is repaired and runs out of energy =="
+	std::cout << "\n== ScavTrap is repaired and runs out of energy =="
 		<< std::endl;
 	{
-		ClapTrap a("Kyle");
+		ScavTrap a("Kyle");
 
-		for (int i = 0; i < 11; i++) {
+		for (int i = 0; i < 51; i++) {
 			a.beRepaired(5);
 		}
+	}
+	std::cout << "\n== ScavTrap is guarding the gate =="
+		<< std::endl;
+	{
+		ScavTrap a("Simon");
+
+		a.guardGate();
 	}
 	return (0);
 }
