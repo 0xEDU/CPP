@@ -6,16 +6,16 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 18:08:51 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:06:28 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void) {
-	std::cout << "== ScavTrap operates normally ==" << std::endl;
+	std::cout << "== FragTrap operates normally ==" << std::endl;
 	{
-		ScavTrap a("Hal");
+		FragTrap a("Hal");
 		ClapTrap b("Joy");
 
 		a.attack("Atrocitus");
@@ -25,37 +25,37 @@ int	main(void) {
 		b.takeDamage(3);
 		b.beRepaired(5);
 	}
-	std::cout << "\n== ScavTrap dies ==" << std::endl;
+	std::cout << "\n== FragTrap dies ==" << std::endl;
 	{
-		ScavTrap a("Guy");
+		FragTrap a("Guy");
 
 		a.attack("Parallax");
 		a.takeDamage(110);
 		a.beRepaired(5);
 	}
-	std::cout << "\n== ScavTrap attacks and is out of energy ==" << std::endl;
+	std::cout << "\n== FragTrap attacks and is out of energy ==" << std::endl;
 	{
-		ScavTrap a("John");
+		FragTrap a("John");
 
-		for (int i = 0; i < 51; i++) {
+		for (int i = 0; i < 101; i++) {
 			a.attack("Sinestro");
 		}
 	}
-	std::cout << "\n== ScavTrap is repaired and runs out of energy =="
+	std::cout << "\n== FragTrap is repaired and runs out of energy =="
 		<< std::endl;
 	{
-		ScavTrap a("Kyle");
+		FragTrap a("Kyle");
 
-		for (int i = 0; i < 51; i++) {
+		for (int i = 0; i < 101; i++) {
 			a.beRepaired(5);
 		}
 	}
-	std::cout << "\n== ScavTrap is guarding the gate =="
+	std::cout << "\n== FragTrap high five =="
 		<< std::endl;
 	{
-		ScavTrap a("Simon");
+		FragTrap a("Simon");
 
-		a.guardGate();
+		a.highFiveGuys();
 	}
 	return (0);
 }
