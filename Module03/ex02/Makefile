@@ -1,4 +1,4 @@
-NAME = scavtrap
+NAME = fragtrap
 
 PATH_SRCS = ./
 PATH_TESTS = .
