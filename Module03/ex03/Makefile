@@ -1,4 +1,4 @@
-NAME = fragtrap
+NAME = diamondtrap
 
 PATH_SRCS = ./
 PATH_TESTS = .
@@ -6,7 +6,9 @@ PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
 		ClapTrap.cpp \
-		FragTrap.cpp
+		FragTrap.cpp \
+		ScavTrap.cpp \
+		DiamondTrap.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 TESTS_OBJS = ${TESTS_SRCS:%.cpp=$(PATH_OBJS)%.o}
