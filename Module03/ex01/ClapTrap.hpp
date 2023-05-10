@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:19:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 15:38:29 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:43:46 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 #include <iostream>
 
 class ClapTrap {
-	std::string	_name;
-	int			_hitPoints;
-	int			_energyPoints;
-	int			_attackDamage;
+	protected:
+		std::string	_name;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackDamage;
 
-	void		pretty_print(std::string action);
+		void		pretty_print(std::string action);
 
 	public:
 		ClapTrap();
