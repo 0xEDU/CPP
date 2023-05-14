@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:45 by edu               #+#    #+#             */
-/*   Updated: 2023/05/13 19:30:13 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/14 11:38:09 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Animal {
 		Animal &operator=(const Animal &);
 		~Animal ();
 
-		virtual void	makeSound();
-		std::string		const getType();
+		virtual void	makeSound() const;
+		std::string		getType() const;
 };
 
 #endif
