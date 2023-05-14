@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:20:06 by edu               #+#    #+#             */
-/*   Updated: 2023/05/13 19:27:37 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/14 16:43:18 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog : public Animal {
 		Dog  &operator=(const Dog  &);
 		~Dog ();
 
-		void		makeSound();
+		void		makeSound() const;
 		std::string	getType();
 };
 
