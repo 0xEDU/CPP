@@ -6,12 +6,13 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/13 19:25:45 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/14 11:56:17 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
+#include "Cat.hpp"
 
 int main (void) {
 	const Animal *meta = new Animal();
