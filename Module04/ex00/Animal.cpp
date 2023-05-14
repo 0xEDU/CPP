@@ -6,13 +6,14 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:29:57 by edu               #+#    #+#             */
-/*   Updated: 2023/05/14 11:50:52 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/14 16:44:24 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal(void) {
+	std::cout << "Animal constructor called" << std::endl;
 	this->type = "";
 	return ;
 }
@@ -27,6 +28,7 @@ Animal  &Animal::operator=(const Animal &rhs) {
 }
 
 Animal::~Animal(void) {
+	std::cout << "Animal destructor called" << std::endl;
 	return ;
 }
 
