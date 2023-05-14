@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/14 11:56:17 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/14 16:43:56 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,8 @@ int main (void) {
 	j->makeSound();
 	meta->makeSound();
 // Implement Wrong animals...
+	delete meta;
+	delete i;
+	delete j;
 	return (0);
 }
