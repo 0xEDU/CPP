@@ -4,7 +4,9 @@ PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
-		Animal.cpp
+		Animal.cpp \
+		Cat.cpp \
+		Dog.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
