@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:45 by edu               #+#    #+#             */
-/*   Updated: 2023/05/14 16:09:20 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/14 17:15:25 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <string>
 #include <iostream>
+
+#define YELLOW "\033[1;33m"
+#define END "\033[0m"
 
 class Animal {
 	protected:
