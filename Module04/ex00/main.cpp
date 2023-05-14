@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/14 16:43:56 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/14 17:16:41 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,56 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int main (void) {
-	const Animal *meta = new Animal();
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
+// TODO:
+//
+// Implement Wrong animals
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); // will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-// Implement Wrong animals...
-	delete meta;
-	delete i;
-	delete j;
+int main (void) {
+	std::cout << YELLOW << "INSTANTIATING DOG CLASS" << END << std::endl;
+	{
+		Dog a;
+
+		a.makeSound();
+		std::cout << a.getType() << std::endl;
+	}
+	std::cout << YELLOW << "\nINSTANTIATING CAT CLASS" << END << std::endl;
+	{
+		Cat a;
+
+		a.makeSound();
+		std::cout << a.getType() << std::endl;
+	}
+	std::cout << YELLOW << "\nNO POINTER USED" <<
+		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE" << END << std::endl;
+	{
+		Animal a = Dog();
+
+		a.makeSound();
+		std::cout << a.getType() << std::endl;
+	}
+	std::cout << YELLOW << "\nPOINTER USED" << 
+		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE" << END << std::endl;
+	{
+		Animal *a = new Dog();
+
+		a->makeSound();
+		std::cout << a->getType() << std::endl;
+		delete a;
+	}
+	std::cout << YELLOW << "\nSUBJECT TESTS" << END << std::endl;
+	{
+		const Animal *meta = new Animal();
+		const Animal *j = new Dog();
+		const Animal *i = new Cat();
+
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound(); // will output the cat sound!
+		j->makeSound();
+		meta->makeSound();
+		delete meta;
+		delete i;
+		delete j;
+	}
 	return (0);
 }
