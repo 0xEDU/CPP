@@ -6,17 +6,18 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:22:24 by edu               #+#    #+#             */
-/*   Updated: 2023/05/13 19:28:19 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/14 11:51:24 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 Dog::Dog() {
+	this->type = "Dog";
 	return ;
 }
 
-Dog::Dog(const Dog &rhs) {
+Dog::Dog(const Dog &rhs) : Animal(rhs) {
 	*this = rhs;
 	return ;
 }
