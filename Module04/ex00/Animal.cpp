@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:29:57 by edu               #+#    #+#             */
-/*   Updated: 2023/05/13 18:34:08 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/13 19:29:49 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,13 @@ Animal  &Animal::operator=(const Animal &rhs) {
 
 Animal::~Animal(void) {
 	return ;
+}
+
+void	Animal::makeSound(void) {
+	std::cout << "" << std::endl;
+	return ;
+}
+
+std::string	const Animal::getType() {
+	return this->type;
 }
