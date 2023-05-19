@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:36:14 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/18 15:44:30 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:52:25 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main (void)
 {
-	std::cout << YELLOW << "Allocating a small amount:" << END << std::endl;
+	std::cout << YELLOW << "ALLOCATING A SMALL AMOUNT" << END << std::endl;
 	{
 		int N = 3;
 		Zombie	*horde = zombieHorde(N, "Gary");
@@ -25,9 +25,7 @@ int main (void)
 			}
 		delete []horde;
 	}
-	std::cout << std::endl;
-	std::cout << YELLOW << "Allocating 0:" << END << std::endl;
-	{
+	std::cout << YELLOW << "\nALLOCATING 0" << END << std::endl; {
 		int N = 0;
 		Zombie	*horde = zombieHorde(N, "Bob");
 
@@ -37,8 +35,7 @@ int main (void)
 			}
 		delete []horde;
 	}
-	std::cout << std::endl;
-	std::cout << YELLOW << "Allocating a negative number:" << END << std::endl;
+	std::cout << YELLOW << "\nALLOCATING A NEGATIVE NUMBER" << END << std::endl;
 	{
 		int N = -1;
 		Zombie	*horde = zombieHorde(N, "Kevin");
@@ -49,8 +46,7 @@ int main (void)
 			}
 		delete []horde;
 	}
-	std::cout << std::endl;
-	std::cout << YELLOW << "Allocating a lot:" << END << std::endl;
+	std::cout << YELLOW << "\nALLOCATING A LOT" << END << std::endl;
 	{
 		int N = 15;
 		Zombie	*horde = zombieHorde(N, "Justin");
@@ -61,8 +57,7 @@ int main (void)
 			}
 		delete []horde;
 	}
-	std::cout << std::endl;
-	std::cout << YELLOW << "Allocating a giant number:" << END << std::endl;
+	std::cout << YELLOW << "\nALLOCATING A GIANT NUMBER" << END << std::endl;
 	{
 		int N = std::numeric_limits<int>::max();
 		Zombie	*horde = zombieHorde(N, "John");
