@@ -6,7 +6,7 @@
 /*   By: etachott < etachott@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 18:36:01 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/18 15:41:38 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:54:29 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 #include <iostream>
 #include <limits>
 
-class Zombie
-{
+class Zombie {
 	public:
 		Zombie();
 		~Zombie();
