@@ -6,7 +6,7 @@
 /*   By: etachott < etachott@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 18:46:01 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/12 19:06:31 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:19:57 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie::Zombie(void) {
 }
 
 Zombie::~Zombie(void) {
-	std::cout << getName() << std::endl;
+	std::cout << this->getName() << std::endl;
 	return ;
 }
 
