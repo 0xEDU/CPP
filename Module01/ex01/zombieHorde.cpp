@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:36:46 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/18 15:45:44 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:54:49 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ Zombie*	zombieHorde( int N, std::string name ) {
 		std::cout << "Invalid N value!" << std::endl;
 		return (NULL);
 	}
-	if (N == 0) std::cout << "Allocating nothing!" << std::endl;
+	if (N == 0)
+		std::cout << "Allocating nothing!" << std::endl;
 	try {
 		Zombie *horde = new Zombie[N];
 
