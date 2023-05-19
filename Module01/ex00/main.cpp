@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 19:02:57 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/12 19:14:26 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:40:57 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 int main (void)
 {
-	Zombie *gary = newZombie("gary");
-	randomChump("Virgílio Gonçalves da Silva");
+	std::cout << "USING newZombie" << std::endl;
+	{
+		Zombie *gary = newZombie("gary");
 
-	gary->announce();
-	delete gary;
+		gary->announce();
+		delete gary;
+	}
+	std::cout << "\nUSING randomChump" << std::endl;
+	{
+		randomChump("bob");
+	}
 	return (0);
 }
