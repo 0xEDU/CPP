@@ -9,6 +9,7 @@ SRCS =	main.cpp \
 		validate_file.cpp \
 		str_replace.cpp \
 		File.cpp
+
 TESTS_SRCS =	tests_main.cpp \
 				validate_file.cpp \
 				str_replace.cpp \
@@ -18,7 +19,7 @@ OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 TESTS_OBJS = ${TESTS_SRCS:%.cpp=$(PATH_OBJS)%.o}
 
 INCLUDE = -I ./
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
