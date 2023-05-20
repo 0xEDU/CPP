@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 16:05:31 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/24 15:23:43 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:18:10 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int main(int argc, char *argv[]) {
 			outfile.append(line);
 			continue ;
 		}
-		str_replace(line, target, replacement);
+		while (line.find(target) != std::string::npos)
+			str_replace(line, target, replacement);
 		outfile.append(line);
 	}
 	return (0);
