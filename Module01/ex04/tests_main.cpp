@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 16:07:24 by etachott          #+#    #+#             */
-/*   Updated: 2023/04/24 15:34:14 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:40:03 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,27 @@ static void	test_file_class(void) {
 	return ;
 }
 
+static void test_multiple_replace(void) {
+	std::string s1("pineapple strawberry watermelon fruit juice lemon");
+	std::string s2("a");
+	std::string s3("b");
+	bool		result;
+
+	std::cout << YELLOW <<
+		"==== MULTIPLE OCCURENCES TESTS ====" << END << std::endl;
+	while (s1.find(s2) != std::string::npos)
+		str_replace(s1, s2, s3);
+	result = s1 == ("pinebpple strbwberry wbtermelon fruit juice lemon");
+	print_result(result, true, "One char replace");
+	s1 = std::string("abcabcabc abc abc abc");
+	s2 = std::string("abc");
+	s3 = std::string("xyz");
+	while (s1.find(s2) != std::string::npos)
+		str_replace(s1, s2, s3);
+	result = s1 == ("xyzxyzxyz xyz xyz xyz");
+	print_result(result, true, "Multiple chars replace");
+}
+
 static void	test_str_replace(void) {
 	std::string s1("avocado with banana");
 	std::string s2("banana");
@@ -75,12 +96,15 @@ static void	test_str_replace(void) {
 }
 
 int main (void) {
-	File testfile("infile", 'o');
-	std::string sample("what is love?\nbaby don't hurt me\nno more");
+	{
+		File testfile("infile", 'o');
+		std::string sample("what is love?\nbaby don't hurt me\nno more");
 
-	testfile.append(sample);
+		testfile.append(sample);
+	}
 	test_validation();
 	test_file_class();
 	test_str_replace();
+	test_multiple_replace();
 	return (0);
 }
