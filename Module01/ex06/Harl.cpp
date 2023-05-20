@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 10:34:07 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/03 10:55:50 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:06:11 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ Harl::~Harl(void) {
 }
 
 void	Harl::complain(std::string filter) {
-	void		(Harl::*levels[4])(void) = {&Harl::debug, &Harl::info,
-				&Harl::warning, &Harl::error};
+	void	(Harl::*levels[4])(void)
+		= {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string	names[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int			i = 0;
-	int			flag = 0;
+	int		flag = 0;
 
-	for (; i < 4; i++) {
+	for (int i = 0; i < 4; i++) {
 		if (filter == names[i]) {
 			flag = 1;
 			switch (i) {
