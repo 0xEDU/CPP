@@ -3,7 +3,7 @@
 #include "Harl.hpp"
 
 int	main(void) {
-	Harl harl;
+	Harl	harl;
 
 	std::cout << YELLOW << "DEBUG:\n" << END;
 	harl.complain("DEBUG");
