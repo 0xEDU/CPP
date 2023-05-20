@@ -1,4 +1,15 @@
-/* Insert header */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/20 17:04:22 by etachott          #+#    #+#             */
+/*   Updated: 2023/05/20 17:04:23 by etachott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef HARL_HPP
 #define HARL_HPP
@@ -10,15 +21,15 @@
 #include <iostream>
 
 class Harl {
-	void	debug( void );
-	void	info( void );
-	void	warning( void );
-	void	error( void );
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
 
 	public:
 		Harl(void);
 		~Harl(void);
-		void	complain( std::string level );
+		void complain( std::string level );
 };
 
 #endif
