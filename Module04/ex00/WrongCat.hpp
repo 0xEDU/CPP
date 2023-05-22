@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:25:04 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/22 12:46:22 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:40:26 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define WRONGCAT_HPP
 
 #include "WrongAnimal.hpp"
+#include "Emojis.hpp"
 
 class WrongCat : public WrongAnimal {
 	protected:
@@ -21,8 +22,8 @@ class WrongCat : public WrongAnimal {
 
 	public:
 		WrongCat ();
-		WrongCat (const WrongCat  &);
-		WrongCat  &operator=(const WrongCat  &);
+		WrongCat (const WrongCat &);
+		WrongCat &operator=(const WrongCat &);
 		~WrongCat ();
 
 		void		makeSound() const;

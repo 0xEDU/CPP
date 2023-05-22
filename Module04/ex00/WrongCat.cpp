@@ -6,14 +6,14 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:24:52 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/22 11:56:01 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:40:54 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat() {
-	std::cout << "This is a wrong cat" << std::endl;
+	std::cout << "A WrongCat " << WRONGCAT << " was created" << std::endl;
 	this->type = "WrongCat";
 	return ;
 }
@@ -29,7 +29,7 @@ WrongCat &WrongCat::operator=(const WrongCat &rhs) {
 }
 
 WrongCat::~WrongCat() {
-	std::cout << "WrongCat begone!" << std::endl;
+	std::cout << "A WrongCat " << WRONGCAT << " was destroyed" << std::endl;
 	return ;
 }
 
