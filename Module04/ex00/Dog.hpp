@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:20:06 by edu               #+#    #+#             */
-/*   Updated: 2023/05/14 16:43:18 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/22 14:38:47 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Emojis.hpp"
 
 class Dog : public Animal {
 	public:
