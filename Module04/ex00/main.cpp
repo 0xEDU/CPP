@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/22 12:55:22 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:50:25 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,23 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-// TODO:
-//
-// Implement Wrong animals
-
 int main (void) {
-	std::cout << YELLOW << "INSTANTIATING DOG CLASS" << END << std::endl;
+	std::cout << YELLOW << "=== INSTANTIATING DOG CLASS ===" << END << std::endl;
 	{
 		Dog a;
 
 		a.makeSound();
 		std::cout << a.getType() << std::endl;
 	}
-	std::cout << YELLOW << "\nINSTANTIATING CAT CLASS" << END << std::endl;
+	std::cout << YELLOW << "\n=== INSTANTIATING CAT CLASS ===" << END << std::endl;
 	{
 		Cat a;
 
 		a.makeSound();
 		std::cout << a.getType() << std::endl;
 	}
-	std::cout << YELLOW << "\nNO POINTER USED" <<
-		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE"
+	std::cout << YELLOW << "\n=== NO POINTER USED" <<
+		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE ==="
 		<< END << std::endl;
 	{
 		Animal a = Dog();
@@ -44,8 +40,8 @@ int main (void) {
 		a.makeSound();
 		std::cout << a.getType() << std::endl;
 	}
-	std::cout << YELLOW << "\nPOINTER USED" << 
-		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE"
+	std::cout << YELLOW << "\n=== POINTER USED" << 
+		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE ==="
 		<< END << std::endl;
 	{
 		Animal *a = new Dog();
@@ -54,7 +50,7 @@ int main (void) {
 		std::cout << a->getType() << std::endl;
 		delete a;
 	}
-	std::cout << YELLOW << "\nWRONG CAT TESTS" << END << std::endl;
+	std::cout << YELLOW << "\n=== WRONG CAT TESTS ===" << END << std::endl;
 	{
 		const WrongAnimal *a = new WrongCat();
 
@@ -62,7 +58,7 @@ int main (void) {
 		std::cout << a->getType() << std::endl;
 		delete a;
 	}
-	std::cout << YELLOW << "\nSUBJECT TESTS" << END << std::endl;
+	std::cout << YELLOW << "\n=== SUBJECT TESTS ===" << END << std::endl;
 	{
 		const Animal *meta = new Animal();
 		const Animal *j = new Dog();
