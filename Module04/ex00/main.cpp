@@ -6,13 +6,15 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/14 17:16:41 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/22 12:55:22 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 // TODO:
 //
@@ -34,7 +36,8 @@ int main (void) {
 		std::cout << a.getType() << std::endl;
 	}
 	std::cout << YELLOW << "\nNO POINTER USED" <<
-		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE" << END << std::endl;
+		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE"
+		<< END << std::endl;
 	{
 		Animal a = Dog();
 
@@ -42,9 +45,18 @@ int main (void) {
 		std::cout << a.getType() << std::endl;
 	}
 	std::cout << YELLOW << "\nPOINTER USED" << 
-		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE" << END << std::endl;
+		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE"
+		<< END << std::endl;
 	{
 		Animal *a = new Dog();
+
+		a->makeSound();
+		std::cout << a->getType() << std::endl;
+		delete a;
+	}
+	std::cout << YELLOW << "\nWRONG CAT TESTS" << END << std::endl;
+	{
+		const WrongAnimal *a = new WrongCat();
 
 		a->makeSound();
 		std::cout << a->getType() << std::endl;
