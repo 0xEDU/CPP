@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 11:25:59 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/22 12:54:49 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:33:28 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include "Emojis.hpp"
 
 class WrongAnimal {
 	protected:
