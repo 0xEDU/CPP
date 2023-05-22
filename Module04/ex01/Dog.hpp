@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:20:06 by edu               #+#    #+#             */
-/*   Updated: 2023/05/22 14:38:47 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:25:20 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 #include "Animal.hpp"
 #include "Emojis.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal {
+	Brain *brain;
+
 	public:
 		Dog ();
 		Dog (const Dog  &);
