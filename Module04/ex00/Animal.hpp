@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:45 by edu               #+#    #+#             */
-/*   Updated: 2023/05/14 17:15:25 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/22 14:38:39 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include "Emojis.hpp"
 
 #define YELLOW "\033[1;33m"
 #define END "\033[0m"
