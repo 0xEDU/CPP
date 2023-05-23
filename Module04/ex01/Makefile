@@ -1,4 +1,4 @@
-NAME = animals
+NAME = smartAnimals
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
@@ -7,14 +7,12 @@ SRCS =	main.cpp \
 		Animal.cpp \
 		Cat.cpp \
 		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
 		Brain.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
 INCLUDE = -I ./
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
 
 all: $(NAME)
 
