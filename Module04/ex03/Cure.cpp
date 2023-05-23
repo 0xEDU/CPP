@@ -6,18 +6,18 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 20:08:53 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:14:53 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure() {
+Cure::Cure() : AMateria("cure") {
 	this->type = "cure";
 	return ;
 }
 
-Cure::Cure(const Cure &rhs) {
+Cure::Cure(const Cure &rhs) : AMateria("cure") {
 	*this = rhs;
 	return ;
 }
