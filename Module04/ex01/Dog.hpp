@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:20:06 by edu               #+#    #+#             */
-/*   Updated: 2023/05/22 16:25:20 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:59:48 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Dog : public Animal {
 
 		void		makeSound() const;
 		std::string	getType();
+		std::string	getIdea(int i);
+		void		setIdea(int i, std::string);
 };
 
 #endif
