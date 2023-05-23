@@ -6,16 +6,16 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:50:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 18:53:39 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:57:26 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
-#include "ICharacter.hpp"
-
 #include <iostream>
+
+class ICharacter;
 
 class AMateria  {
 	protected:
