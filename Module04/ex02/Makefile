@@ -1,10 +1,10 @@
-NAME = smartAnimals
+NAME = smartAAnimals
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
-		Animal.cpp \
+		AAnimal.cpp \
 		Cat.cpp \
 		Dog.cpp \
 		Brain.cpp
