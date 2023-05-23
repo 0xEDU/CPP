@@ -6,13 +6,13 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 19:52:32 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:08:53 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("cure"){
+Cure::Cure() {
 	this->type = "cure";
 	return ;
 }
@@ -35,7 +35,7 @@ Cure *Cure::clone() const {
 	return new Cure();
 }
 
-void use(ICharacter &target) {
+void Cure::use(ICharacter &target) {
 	std::cout << "* shoots na ice bolt at " << target.getName() << std::endl;
 	return ;
 }
