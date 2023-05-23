@@ -6,12 +6,11 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 19:28:22 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:42:21 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
-#include "ICharacter.hpp"
 
 Ice::Ice() : AMateria("ice"){
 	this->type = "ice";
