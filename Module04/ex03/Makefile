@@ -3,7 +3,11 @@ NAME = materia
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
-SRCS =	main.cpp
+SRCS =	main.cpp \
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		MateriaSource.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
