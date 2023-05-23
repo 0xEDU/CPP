@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 19:16:19 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:30:36 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,14 @@ Cure &Cure::operator=(const Cure &rhs) {
 }
 
 Cure::~Cure() {
+	return ;
+}
+
+Cure *Cure::clone() const {
+	return new Cure();
+}
+
+void use(ICharacter &target) {
+	std::cout << "* shoots na ice bolt at " << target.getName() << std::endl;
 	return ;
 }
