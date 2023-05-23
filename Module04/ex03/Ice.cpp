@@ -6,18 +6,18 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 20:08:33 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:19:21 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() {
+Ice::Ice() : AMateria("ice") {
 	this->type = "ice";
 	return ;
 }
 
-Ice::Ice(const Ice &rhs) {
+Ice::Ice(const Ice &rhs) : AMateria("ice") {
 	*this = rhs;
 	return ;
 }
