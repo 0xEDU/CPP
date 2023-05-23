@@ -6,72 +6,56 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/22 15:50:25 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:04:02 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main (void) {
-	std::cout << YELLOW << "=== INSTANTIATING DOG CLASS ===" << END << std::endl;
+	std::cout << YELLOW << "=== DEEP COPY TESTS ===" << END << std::endl;
+	std::cout << "CAT DEEP COPY" << std::endl;
 	{
-		Dog a;
+		Cat cat;
+		Cat catto = cat;
 
-		a.makeSound();
-		std::cout << a.getType() << std::endl;
+		catto.setIdea(0, std::string("SLEEP"));
+		std::cout << cat.getIdea(0) << std::endl;
+		std::cout << catto.getIdea(0) << std::endl;
 	}
-	std::cout << YELLOW << "\n=== INSTANTIATING CAT CLASS ===" << END << std::endl;
+	std::cout << "\nDOG DEEP COPY" << std::endl;
 	{
-		Cat a;
+		Dog dog;
+		Dog doggo = dog;
 
-		a.makeSound();
-		std::cout << a.getType() << std::endl;
-	}
-	std::cout << YELLOW << "\n=== NO POINTER USED" <<
-		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE ==="
-		<< END << std::endl;
-	{
-		Animal a = Dog();
-
-		a.makeSound();
-		std::cout << a.getType() << std::endl;
-	}
-	std::cout << YELLOW << "\n=== POINTER USED" << 
-		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE ==="
-		<< END << std::endl;
-	{
-		Animal *a = new Dog();
-
-		a->makeSound();
-		std::cout << a->getType() << std::endl;
-		delete a;
-	}
-	std::cout << YELLOW << "\n=== WRONG CAT TESTS ===" << END << std::endl;
-	{
-		const WrongAnimal *a = new WrongCat();
-
-		a->makeSound();
-		std::cout << a->getType() << std::endl;
-		delete a;
+		doggo.setIdea(0, "SLEEP");
+		std::cout << dog.getIdea(0) << std::endl;
+		std::cout << doggo.getIdea(0) << std::endl;
 	}
 	std::cout << YELLOW << "\n=== SUBJECT TESTS ===" << END << std::endl;
 	{
-		const Animal *meta = new Animal();
-		const Animal *j = new Dog();
-		const Animal *i = new Cat();
+		const Animal *dog = new Dog();
+		const Animal *cat = new Cat();
 
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); // will output the cat sound!
-		j->makeSound();
-		meta->makeSound();
-		delete meta;
-		delete i;
-		delete j;
+		delete dog;
+		delete cat;
+	}
+	std::cout << YELLOW << "\n=== ARRAY TESTS ===" << END << std::endl;
+	{
+		const Animal *animals[10];
+		std::cout << "CREATING ARRAY" << std::endl;
+		for (int i = 0; i < 10; i++) {
+			if (i < 5)
+				animals[i] = new Cat();
+			else
+				animals[i] = new Dog();
+		}
+		std::cout << "\nDELETING ARRAY" << std::endl;
+		for (int i = 0; i < 10; i++) {
+			delete animals[i];
+		}
 	}
 	return (0);
 }
