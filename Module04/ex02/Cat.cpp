@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:22:24 by edu               #+#    #+#             */
-/*   Updated: 2023/05/23 15:56:04 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:38:53 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Cat::Cat() {
 	return ;
 }
 
-Cat::Cat(const Cat &rhs) : Animal(rhs) {
+Cat::Cat(const Cat &rhs) : AAnimal(rhs) {
 	std::cout << "A cat " << CAT << " was copied" << std::endl;
 	*this = rhs;
 	return ;
@@ -43,7 +43,7 @@ void	Cat::makeSound(void) const {
 	return ;
 }
 
-std::string	Cat::getType() {
+std::string	Cat::getType() const {
 	return this->type;
 }
 

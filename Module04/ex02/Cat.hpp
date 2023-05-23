@@ -6,18 +6,18 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:20:06 by edu               #+#    #+#             */
-/*   Updated: 2023/05/23 15:56:15 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:38:48 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 #include "Emojis.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 	Brain *brain;
 
 	public:
@@ -27,7 +27,7 @@ class Cat : public Animal {
 		~Cat ();
 
 		void		makeSound() const;
-		std::string	getType();
+		std::string	getType() const;
 		void		setIdea(int i, std::string idea);
 		std::string	getIdea(int i);
 };
