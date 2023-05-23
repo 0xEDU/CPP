@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 19:36:36 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:05:57 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ MateriaSource::MateriaSource(const MateriaSource &rhs) {
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
+	(void) rhs;
 	return *this;
 }
 
@@ -35,5 +36,6 @@ void learnMateria(AMateria *materia) {
 }
 
 AMateria *createMateria(std::string const &type) {
+	(void)type;
 	return new Ice(); // This will change in the future
 }

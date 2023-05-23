@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 19:30:36 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:52:32 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Cure::Cure(const Cure &rhs) {
 }
 
 Cure &Cure::operator=(const Cure &rhs) {
+	(void) rhs;
 	return *this;
 }
 

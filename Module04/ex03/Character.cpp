@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 19:47:02 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:03:27 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Character::Character(const Character &rhs) {
 }
 
 Character &Character::operator=(const Character &rhs) {
+	(void)rhs;
 	return *this;
 }
 
@@ -30,11 +31,12 @@ Character::~Character() {
 }
 
 Character::Character(std::string name) {
+	(void) name;
 	return ;
 }
 
 std::string const &Character::getName() const {
-	return this->getName();
+	return this->_name;
 }
 
 void Character::equip(AMateria *m) {
