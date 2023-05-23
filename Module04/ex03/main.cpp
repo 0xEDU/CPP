@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:41:11 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 18:49:18 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:29:56 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int main(void) {
 	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
-	src->learnMateria(new CUre());
+	src->learnMateria(new Cure());
 
 	ICharacter *me = new Character("me");
 
