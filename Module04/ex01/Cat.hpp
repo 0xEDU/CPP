@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:20:06 by edu               #+#    #+#             */
-/*   Updated: 2023/05/23 14:18:12 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:56:15 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 class Cat : public Animal {
 	Brain *brain;
+
 	public:
 		Cat ();
 		Cat (const Cat  &);
@@ -27,6 +28,8 @@ class Cat : public Animal {
 
 		void		makeSound() const;
 		std::string	getType();
+		void		setIdea(int i, std::string idea);
+		std::string	getIdea(int i);
 };
 
 #endif
