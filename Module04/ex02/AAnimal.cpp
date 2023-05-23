@@ -6,39 +6,39 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:29:57 by edu               #+#    #+#             */
-/*   Updated: 2023/05/23 14:36:25 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:37:11 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal(void) {
-	std::cout << "An Animal " << ANIMAL << " was created" << std::endl;
+AAnimal::AAnimal() {
+	std::cout << "An AAnimal " << ANIMAL << " was created" << std::endl;
 	this->type = "";
 	return ;
 }
 
-Animal::Animal (const Animal &rhs) {
-	std::cout << "An Animal " << ANIMAL << " was copied" << std::endl;
+AAnimal::AAnimal (const AAnimal &rhs) {
+	std::cout << "An AAnimal " << ANIMAL << " was copied" << std::endl;
 	this->type = "";
 	*this = rhs;
 	return ;
 }
-Animal  &Animal::operator=(const Animal &rhs) {
+AAnimal  &AAnimal::operator=(const AAnimal &rhs) {
 	this->type = rhs.type;
 	return *this;
 }
 
-Animal::~Animal(void) {
-	std::cout << "An Animal " << ANIMAL << " was destroyed" << std::endl;
+AAnimal::~AAnimal() {
+	std::cout << "An AAnimal " << ANIMAL << " was destroyed" << std::endl;
 	return ;
 }
 
-void	Animal::makeSound(void) const {
+void	AAnimal::makeSound() const {
 	std::cout << "" << std::endl;
 	return ;
 }
 
-std::string	Animal::getType() const {
+std::string	AAnimal::getType() const {
 	return this->type;
 }
