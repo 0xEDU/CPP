@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:22:24 by edu               #+#    #+#             */
-/*   Updated: 2023/05/22 15:44:20 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:18:38 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Cat::Cat() {
 	std::cout << "A cat " << CAT << " was created" << std::endl;
 	this->type = "Cat";
+	this->brain = new Brain();
 	return ;
 }
 
@@ -30,6 +31,7 @@ Cat	&Cat::operator=(const Cat &rhs) {
 
 Cat::~Cat() {
 	std::cout << "A cat " << CAT << " was destroyed" << std::endl;
+	delete this->brain;
 	return ;
 }
 
