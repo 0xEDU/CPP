@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:50:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 18:57:26 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:09:43 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class ICharacter;
 
 class AMateria  {
 	protected:
+		std::string type;
 
 	public:
 		AMateria(std::string const &type);
