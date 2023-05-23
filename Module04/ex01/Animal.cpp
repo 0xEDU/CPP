@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:29:57 by edu               #+#    #+#             */
-/*   Updated: 2023/05/22 15:42:54 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:36:25 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ Animal::Animal(void) {
 }
 
 Animal::Animal (const Animal &rhs) {
+	std::cout << "An Animal " << ANIMAL << " was copied" << std::endl;
+	this->type = "";
 	*this = rhs;
 	return ;
 }
