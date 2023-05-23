@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:15:33 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 11:40:52 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:49:17 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Brain::Brain() {
 }
 
 Brain::Brain(const Brain &rhs) {
+	std::cout << "A Brain " << BRAIN << " was copied" << std::endl;
 	*this = rhs;
 	return ;
 }
@@ -33,4 +34,20 @@ Brain &Brain::operator=(const Brain &rhs) {
 Brain::~Brain() {
 	std::cout << "A Brain " << BRAIN << " was destroyed" << std::endl;
 	return ;
+}
+
+std::string Brain::getIdea(int i) const {
+	return this->ideas[i];
+}
+
+void Brain::setIdea(int i, std::string idea) {
+	this->ideas[i] = idea;
+	return ;
+}
+
+std::ostream &operator<<(std::ostream &o, Brain const &brain) {
+	for (int i = 0; i < 100; i++) {
+		o << brain.getIdea(i) << "\n";
+	}
+	return (o);
 }
