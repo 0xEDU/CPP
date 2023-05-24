@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 20:05:57 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/23 23:39:28 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ MateriaSource::~MateriaSource() {
 	return ;
 }
 
-void learnMateria(AMateria *materia) {
+void MateriaSource::learnMateria(AMateria *materia) {
 	(void)materia;
 	return ;
 }
 
-AMateria *createMateria(std::string const &type) {
+AMateria *MateriaSource::createMateria(std::string const &type) {
 	(void)type;
 	return new Ice(); // This will change in the future
 }
