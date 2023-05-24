@@ -4,6 +4,7 @@ PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
+		AMateria.cpp \
 		Character.cpp \
 		Cure.cpp \
 		Ice.cpp \
