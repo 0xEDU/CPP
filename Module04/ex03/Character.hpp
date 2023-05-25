@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:20:45 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 20:05:24 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:42:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 #include "MateriaSource.hpp"
 
 class Character : public ICharacter {
-	MateriaSource _inventory[4];
+	AMateria *_inventory[4];
 	std::string _name;
+	static int _count;
 
 	public:
 		Character ();
