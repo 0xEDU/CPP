@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 13:45:14 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:19:38 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ MateriaSource::MateriaSource(const MateriaSource &rhs) {
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
-	(void) rhs;
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = rhs.inventory[i];
+	this->count = rhs.count;
 	return *this;
 }
 
