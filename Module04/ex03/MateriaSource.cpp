@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 14:19:38 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:22:09 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ AMateria *MateriaSource::createMateria(std::string const &type) {
 		return new Ice();
 	else if (type == "cure")
 		return new Cure();
-	else
-		return 0;
+	return 0;
 }
