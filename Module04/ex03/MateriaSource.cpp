@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 13:41:22 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:45:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,18 @@ MateriaSource::~MateriaSource() {
 }
 
 void MateriaSource::learnMateria(AMateria *materia) {
-	if (this->count < 4) {
+	if (this->count < 4)
 		this->inventory[this->count++] = materia;
-		std::cout << "Add one" << std::endl;
-	}
 	else
 		delete materia;
 	return ;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
-	(void)type;
-	return new Ice(); // This will change in the future
+	if (type == "ice")
+		return new Ice();
+	else if (type == "cure")
+		return new Cure();
+	else
+		return 0;
 }
