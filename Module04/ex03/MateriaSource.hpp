@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:18:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 13:43:13 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:25:01 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include "Cure.hpp"
 
 class MateriaSource : public IMateriaSource {
-	AMateria *inventory[4];
-	static int count;
+	AMateria *_inventory[4];
+	static int _count;
 
 	public:
 		MateriaSource ();

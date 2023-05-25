@@ -6,13 +6,13 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 14:22:09 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 14:25:35 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-int MateriaSource::count = 0;
+int MateriaSource::_count = 0;
 
 MateriaSource::MateriaSource() {
 	return ;
@@ -25,23 +25,23 @@ MateriaSource::MateriaSource(const MateriaSource &rhs) {
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = rhs.inventory[i];
-	this->count = rhs.count;
+		this->_inventory[i] = rhs._inventory[i];
+	this->_count = rhs._count;
 	return *this;
 }
 
 MateriaSource::~MateriaSource() {
-	if (this->count > 0) {
-		for (int i = 0 ; i < this->count; i++) {
-			delete this->inventory[i];
+	if (this->_count > 0) {
+		for (int i = 0 ; i < this->_count; i++) {
+			delete this->_inventory[i];
 		}
 	}
 	return ;
 }
 
 void MateriaSource::learnMateria(AMateria *materia) {
-	if (this->count < 4)
-		this->inventory[this->count++] = materia;
+	if (this->_count < 4)
+		this->_inventory[this->_count++] = materia;
 	else
 		delete materia;
 	return ;
