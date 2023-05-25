@@ -6,13 +6,17 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 23:34:26 by edu               #+#    #+#             */
-/*   Updated: 2023/05/23 23:36:54 by edu              ###   ########.fr       */
+/*   Updated: 2023/05/25 13:26:17 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria(std::string const &type) : type(type) {
+	return ;
+}
+
+AMateria::~AMateria () {
 	return ;
 }
 

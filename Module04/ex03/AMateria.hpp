@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:50:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/23 20:15:24 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:25:54 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class AMateria  {
 
 	public:
 		AMateria(std::string const &type);
+		virtual ~AMateria();
 
 		std::string const &getType() const;
 
