@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 13:30:12 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:41:22 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 }
 
 MateriaSource::~MateriaSource() {
-	// std::cout << "COUNT == " << this->count << std::endl;
-	// delete this->inventory[0];
-	// delete this->inventory[1];
-	// delete this->inventory[2];
 	if (this->count > 0) {
 		for (int i = 0 ; i < this->count; i++) {
 			delete this->inventory[i];
