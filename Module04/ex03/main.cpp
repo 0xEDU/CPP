@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:41:11 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/26 14:58:09 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:02:04 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@
 // DONE:
 //
 // -> Implment MateriaSource functions;
+// -> Implment Character functions;
+// -> Fix leaks;
 //
 // TODO:
 //
-// -> Write tests to assert that all functionalities are working as intended
+// -> Write tests to assert that all functionalities are working as intended;
 
 int main(void) {
 	std::cout << YELLOW << "=== MANDATORY TESTS ===" << END << std::endl;
