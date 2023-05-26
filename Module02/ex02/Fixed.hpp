@@ -6,12 +6,15 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:33:39 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/05 15:07:48 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/26 17:39:20 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
+
+#define YELLOW "\033[1;33m"
+#define END "\033[0m"
 
 #include <iostream>
 #include <limits>
