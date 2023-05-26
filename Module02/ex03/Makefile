@@ -1,7 +1,6 @@
-	NAME = fixed
+NAME = bsp
 
 PATH_SRCS = ./
-PATH_TESTS = .
 PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
@@ -10,10 +9,9 @@ SRCS =	main.cpp \
 		Point.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
-TESTS_OBJS = ${TESTS_SRCS:%.cpp=$(PATH_OBJS)%.o}
 
 INCLUDE = -I ./
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
