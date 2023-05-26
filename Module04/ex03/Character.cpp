@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 14:44:45 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:46:00 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int Character::_count = 0;
 
 Character::Character() : _name("") {
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 	return ;
 }
 
@@ -31,12 +33,16 @@ Character &Character::operator=(const Character &rhs) {
 }
 
 Character::~Character() {
-	for (int i = 0; i < this->_count; i++)
-		delete this->_inventory[i];
+	if (this->_count > 0) {
+		for (int i = 0; i < this->_count; i++)
+			delete this->_inventory[i];
+	}
 	return ;
 }
 
 Character::Character(std::string name) : _name(name) {
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 	return ;
 }
 
