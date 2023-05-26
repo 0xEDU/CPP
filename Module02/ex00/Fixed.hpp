@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:33:39 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/03 20:07:04 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:06:12 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <iostream>
 
 class Fixed {
-	int					value;
-	static const int	fractional = 8;
+	int					rawValue;
+	static const int	bits = 8;
 
 	public:
 		Fixed();
