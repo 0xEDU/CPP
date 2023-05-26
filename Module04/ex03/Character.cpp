@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 17:46:00 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:51:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter &target) {
-	(void) idx;
-	(void) target;
+	this->_inventory[idx]->use(target);
 	return ;
 }
