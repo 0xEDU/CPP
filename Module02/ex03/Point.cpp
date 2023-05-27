@@ -25,10 +25,10 @@ Point::~Point() {
     return ;
 }
 
-float Point::getX(void) {
+float Point::getX(void) const {
     return (this->_x.toFloat());
 }
 
-float Point::getY(void) {
+float Point::getY(void) const {
     return (this->_y.toFloat());
 }
