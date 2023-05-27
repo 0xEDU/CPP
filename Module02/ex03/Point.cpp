@@ -24,3 +24,11 @@ Point &Point::operator=(const Point &rhs) {
 Point::~Point() {
     return ;
 }
+
+float Point::getX(void) {
+    return (this->_x.toFloat());
+}
+
+float Point::getY(void) {
+    return (this->_y.toFloat());
+}
