@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:58:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/27 21:24:08 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/27 21:28:33 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static float area(float x1, float y1, float x2, float y2, float x3, float y3) {
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point) {
-    if (point == a || point == b || point == c) 
+    if (point == a || point == b || point == c)
 		return false;
     Fixed totalArea =
         area(a.getX(), a.getY(), b.getX(), b.getY(), c.getX(), c.getY());

@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:15:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/27 14:23:22 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/27 21:31:16 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ int	main(void) {
 		Point	p(1, 2);
 
 		assert(bsp(a, b, c, p), false, "Point is on edge of the triangle");
+	}
+	{
+		Point	a(0, 0);
+		Point	b(2, 0);
+		Point	c(2.3, 2.1);
+		Point	p(2.3, 2.1);
+
+		assert(bsp(a, b, c, p), false, \
+			"Point is a vertex of the triangle and a float");
 	}
 	return (0);
 }
