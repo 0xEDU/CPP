@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 21:24:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/27 21:25:06 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/27 21:30:10 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,10 @@ float Point::getX(void) const {
 
 float Point::getY(void) const {
     return (this->_y.toFloat());
+}
+
+bool Point::operator==(const Point &rhs) const {
+	if (this->_x.toInt() == rhs._x.toInt() && this->_y.toInt() == rhs._y.toInt())
+		return true;
+	return false;
 }
