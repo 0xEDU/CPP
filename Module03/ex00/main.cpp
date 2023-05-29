@@ -6,14 +6,15 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 16:30:19 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:35:06 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 int	main(void) {
-	std::cout << "== ClapTrap operates normally ==" << std::endl;
+	std::cout << GREEN << "=== ClapTrap operates normally ==="
+		<< END << std::endl;
 	{
 		ClapTrap a("Hal");
 
@@ -21,7 +22,8 @@ int	main(void) {
 		a.takeDamage(3);
 		a.beRepaired(5);
 	}
-	std::cout << "\n== ClapTrap dies ==" << std::endl;
+	std::cout << GREEN << "\n=== ClapTrap dies ===" 
+		<< END << std::endl;
 	{
 		ClapTrap a("Guy");
 
@@ -29,7 +31,8 @@ int	main(void) {
 		a.takeDamage(10);
 		a.beRepaired(5);
 	}
-	std::cout << "\n== ClapTrap attacks and is out of energy ==" << std::endl;
+	std::cout << GREEN << "\n== ClapTrap attacks and is out of energy =="
+		<< END << std::endl;
 	{
 		ClapTrap a("John");
 
@@ -37,8 +40,8 @@ int	main(void) {
 			a.attack("Sinestro");
 		}
 	}
-	std::cout << "\n== ClapTrap is repaired and runs out of energy =="
-		<< std::endl;
+	std::cout << GREEN << "\n=== ClapTrap is repaired and run out of energy ==="
+		<< END << std::endl;
 	{
 		ClapTrap a("Kyle");
 
