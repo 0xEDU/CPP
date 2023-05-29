@@ -6,14 +6,15 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 18:08:51 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:52:49 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 int	main(void) {
-	std::cout << "== ScavTrap operates normally ==" << std::endl;
+	std::cout << GREEN << "=== ScavTrap operates normally ==="
+		<< END << std::endl;
 	{
 		ScavTrap a("Hal");
 		ClapTrap b("Joy");
@@ -25,7 +26,7 @@ int	main(void) {
 		b.takeDamage(3);
 		b.beRepaired(5);
 	}
-	std::cout << "\n== ScavTrap dies ==" << std::endl;
+	std::cout << GREEN << "\n=== ScavTrap dies ===" << END << std::endl;
 	{
 		ScavTrap a("Guy");
 
@@ -33,7 +34,8 @@ int	main(void) {
 		a.takeDamage(110);
 		a.beRepaired(5);
 	}
-	std::cout << "\n== ScavTrap attacks and is out of energy ==" << std::endl;
+	std::cout << GREEN << "\n=== ScavTrap attacks and is out of energy ==="
+		<< END << std::endl;
 	{
 		ScavTrap a("John");
 
@@ -41,8 +43,8 @@ int	main(void) {
 			a.attack("Sinestro");
 		}
 	}
-	std::cout << "\n== ScavTrap is repaired and runs out of energy =="
-		<< std::endl;
+	std::cout << GREEN << "\n=== ScavTrap is repaired and runs out of energy ==="
+		<< END << std::endl;
 	{
 		ScavTrap a("Kyle");
 
@@ -50,8 +52,8 @@ int	main(void) {
 			a.beRepaired(5);
 		}
 	}
-	std::cout << "\n== ScavTrap is guarding the gate =="
-		<< std::endl;
+	std::cout << GREEN << "\n=== ScavTrap is guarding the gate ==="
+		<< END << std::endl;
 	{
 		ScavTrap a("Simon");
 
