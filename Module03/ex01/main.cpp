@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/29 15:52:49 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:39:07 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	main(void) {
 		ScavTrap a("Guy");
 
 		a.attack("Parallax");
-		a.takeDamage(110);
+		a.takeDamage(10);
+		a.takeDamage(90);
 		a.beRepaired(5);
 	}
 	std::cout << GREEN << "\n=== ScavTrap attacks and is out of energy ==="

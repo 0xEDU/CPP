@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:19:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/29 15:32:35 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:00:33 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ class ClapTrap {
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+
+		void		setName(std::string name);
+		std::string	getName(void);
+		void		setHitPoints(int hp);
+		int			getHitPoints(void);
+		void		setEnergyPoints(int ep);
+		int			getEnergyPoints(void);
+		void		setAttackDamage(int ad);
+		int			getAttackDamage(void);
+
+		std::string	getName(void) const;
+		int			getHitPoints(void) const;
+		int			getEnergyPoints(void) const;
+		int			getAttackDamage(void) const;
 };
 
 #endif // !CLAPTRAP_HPP

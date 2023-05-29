@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:40:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/29 15:31:10 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:39:54 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,3 +101,54 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	return ;
 }
 
+void	ClapTrap::setName(std::string name) {
+	this->_name = name;
+	return ;
+}
+
+std::string ClapTrap::getName(void) {
+	return (this->_name);
+}
+
+std::string ClapTrap::getName(void) const {
+	return (this->_name);
+}
+
+void	ClapTrap::setHitPoints(int hp) {
+	this->_hitPoints = hp;
+	return ;
+}
+
+int	ClapTrap::getHitPoints(void) {
+	return (this->_hitPoints);
+}
+
+int	ClapTrap::getHitPoints(void) const {
+	return (this->_hitPoints);
+}
+
+void	ClapTrap::setAttackDamage(int ad) {
+	this->_attackDamage = ad;
+	return ;
+}
+
+int	ClapTrap::getAttackDamage(void) {
+	return (this->_attackDamage);
+}
+
+int	ClapTrap::getAttackDamage(void) const {
+	return (this->_attackDamage);
+}
+
+void	ClapTrap::setEnergyPoints(int ep) {
+	this->_energyPoints = ep;
+	return ;
+}
+
+int	ClapTrap::getEnergyPoints(void) {
+	return (this->_energyPoints);
+}
+
+int	ClapTrap::getEnergyPoints(void) const {
+	return (this->_energyPoints);
+}
