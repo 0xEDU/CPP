@@ -6,14 +6,14 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:40:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 16:19:38 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:31:10 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
-	std::cout << "A ClapTrap is constructed!!" << std::endl;
+	std::cout << "ClapTrap default constructor called" << std::endl;
 	this->_name = "";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap() {
 }
 
 ClapTrap::ClapTrap(std::string name) {
-	std::cout << "A ClapTrap called " << name << " is born!!" << std::endl;
+	std::cout << "ClapTrap called " << name << " is born!!" << std::endl;
 	this->_name = name;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -44,7 +44,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs) {
 }
 
 ClapTrap::~ClapTrap() {
-	this->pretty_print(" is deconstructed!!");
+	std::cout << "ClapTrap destructor called" << std::endl;
 	return ;
 }
 
