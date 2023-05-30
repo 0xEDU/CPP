@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:19:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/30 17:33:34 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:51:01 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@
 #define END "\033[0m"
 
 class ClapTrap {
-	std::string	_name;
-	std::string	_type;
-	int			_hitPoints;
-	int			_energyPoints;
-	int			_attackDamage;
+	protected:
+		std::string	_name;
+		std::string	_type;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackDamage;
 
-	void	pretty_print(std::string action);
+	private:
+		void	pretty_print(std::string action);
 
 	public:
 		ClapTrap();
