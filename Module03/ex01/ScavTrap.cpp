@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:54:14 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/29 19:38:05 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:37:23 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "A ScavTrap is constructed!!" << std::endl;
 	this->setName("");
+	this->setType("ScavTrap");
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
@@ -25,7 +26,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "A ScavTrap called " << name << " is born!!" << std::endl;
-	// this->setName(name);
+	this->setType("ScavTrap");
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
