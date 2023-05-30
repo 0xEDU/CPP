@@ -6,14 +6,14 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 19:06:28 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:12:12 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 int	main(void) {
-	std::cout << "== FragTrap operates normally ==" << std::endl;
+	std::cout << GREEN << "=== FragTrap operates normally ===" << std::endl;
 	{
 		FragTrap a("Hal");
 		ClapTrap b("Joy");
@@ -25,7 +25,7 @@ int	main(void) {
 		b.takeDamage(3);
 		b.beRepaired(5);
 	}
-	std::cout << "\n== FragTrap dies ==" << std::endl;
+	std::cout << GREEN << "\n=== FragTrap dies ===" << END << std::endl;
 	{
 		FragTrap a("Guy");
 
@@ -33,7 +33,8 @@ int	main(void) {
 		a.takeDamage(110);
 		a.beRepaired(5);
 	}
-	std::cout << "\n== FragTrap attacks and is out of energy ==" << std::endl;
+	std::cout << GREEN << "\n=== FragTrap attacks and is out of energy ==="
+		<< END << std::endl;
 	{
 		FragTrap a("John");
 
@@ -41,8 +42,8 @@ int	main(void) {
 			a.attack("Sinestro");
 		}
 	}
-	std::cout << "\n== FragTrap is repaired and runs out of energy =="
-		<< std::endl;
+	std::cout << GREEN << "\n=== FragTrap is repaired and runs out of energy ==="
+		<< END << std::endl;
 	{
 		FragTrap a("Kyle");
 
@@ -50,8 +51,8 @@ int	main(void) {
 			a.beRepaired(5);
 		}
 	}
-	std::cout << "\n== FragTrap high five =="
-		<< std::endl;
+	std::cout << GREEN << "\n=== FragTrap high five ==="
+		<< END << std::endl;
 	{
 		FragTrap a("Simon");
 
