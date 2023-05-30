@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/29 19:39:07 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:41:00 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(void) {
 
 		a.attack("Atrocitus");
 		a.takeDamage(3);
+		a.takeDamage(100);
 		a.beRepaired(5);
 		b.attack("Atrocitus");
 		b.takeDamage(3);
