@@ -6,14 +6,15 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/30 18:12:12 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:17:58 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 int	main(void) {
-	std::cout << GREEN << "=== FragTrap operates normally ===" << std::endl;
+	std::cout << GREEN << "=== FragTrap operates normally ==="
+		<< END << std::endl;
 	{
 		FragTrap a("Hal");
 		ClapTrap b("Joy");
