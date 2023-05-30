@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:40:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/29 19:39:54 by etachott         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:35:41 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ClapTrap::ClapTrap() {
 	std::cout << "ClapTrap default constructor called" << std::endl;
 	this->_name = "";
+	this->_type = "ClapTrap";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
@@ -24,6 +25,7 @@ ClapTrap::ClapTrap() {
 ClapTrap::ClapTrap(std::string name) {
 	std::cout << "ClapTrap called " << name << " is born!!" << std::endl;
 	this->_name = name;
+	this->_type = "ClapTrap";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
@@ -37,6 +39,7 @@ ClapTrap::ClapTrap(const ClapTrap &rhs) {
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs) {
 	this->_name = rhs._name;
+	this->_type = "ClapTrap";
 	this->_hitPoints = rhs._hitPoints;
 	this->_energyPoints = rhs._energyPoints;
 	this->_attackDamage = rhs._attackDamage;
@@ -49,7 +52,7 @@ ClapTrap::~ClapTrap() {
 }
 
 void	ClapTrap::pretty_print(std::string action) {
-	std::cout << "ClapTrap " << this->_name << action << std::endl;
+	std::cout << this->_type << " " << this->_name << action << std::endl;
 	return ;
 }
 
@@ -62,7 +65,7 @@ void	ClapTrap::attack(const std::string &target) {
 		this->pretty_print(" is out of energy!");
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_name
+	std::cout << this->_type << " " << this->_name
 				<< " attacks " << target << ", dealing "
 				<< this->_attackDamage << " damage."
 				<< std::endl;
@@ -75,7 +78,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		this->pretty_print(" is already gone!");
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_name
+	std::cout << this->_type << " " << this->_name
 				<< " takes " << amount << " damage! Ouch!"
 				<< std::endl;
 	this->_hitPoints -= amount;
@@ -93,7 +96,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 		this->pretty_print(" is out of energy!");
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_name
+	std::cout << this->_type << " " << this->_name
 				<< " is repaired by " << amount << " hit points."
 				<< std::endl;
 	this->_hitPoints += amount;
@@ -112,6 +115,19 @@ std::string ClapTrap::getName(void) {
 
 std::string ClapTrap::getName(void) const {
 	return (this->_name);
+}
+
+void	ClapTrap::setType(std::string type) {
+	this->_type = type;
+	return ;
+}
+
+std::string ClapTrap::getType(void) {
+	return (this->_type);
+}
+
+std::string ClapTrap::getType(void) const {
+	return (this->_type);
 }
 
 void	ClapTrap::setHitPoints(int hp) {
@@ -144,7 +160,6 @@ void	ClapTrap::setEnergyPoints(int ep) {
 	this->_energyPoints = ep;
 	return ;
 }
-
 int	ClapTrap::getEnergyPoints(void) {
 	return (this->_energyPoints);
 }
