@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: etachott < etachott@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/02 12:45:21 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/02 19:54:27 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(void) {
 	{
 		DiamondTrap a("Guy");
 
-		// a.attack("Parallax");
+		a.attack("Parallax");
 		a.takeDamage(110);
 		a.beRepaired(5);
 	}
@@ -38,7 +38,7 @@ int	main(void) {
 		DiamondTrap a("John");
 
 		for (int i = 0; i < 101; i++) {
-			// a.attack("Sinestro");
+			a.attack("Sinestro");
 		}
 	}
 	std::cout << "\n== DiamondTrap is repaired and runs out of energy =="
@@ -63,6 +63,15 @@ int	main(void) {
 		DiamondTrap a("Simon");
 
 		a.guardGate();
+	}
+	std::cout << GREEN << "\n== DiamondTrap dies ==" << END << std::endl;
+	{
+		DiamondTrap a("Guy");
+
+		std::cout << a.getName() << std::endl;
+		std::cout << a.getHitPoints() << std::endl;
+		std::cout << a.getEnergyPoints() << std::endl;
+		std::cout << a.getAttackDamage() << std::endl;
 	}
 	return (0);
 }
