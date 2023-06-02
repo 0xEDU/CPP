@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:50:06 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 20:42:21 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/02 12:57:30 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,13 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public virtual ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 	void	pretty_print(std::string action);
+
+	protected:
+		const static int HIT_POINTS = 100;
+		const static int ENERGY_POINTS = 50;
+		const static int ATTACK_DAMAGE = 20;
 
 	public:
 		ScavTrap ();

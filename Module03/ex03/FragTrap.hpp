@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:31:08 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 20:42:11 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/02 12:56:54 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap {
+class FragTrap : virtual public ClapTrap {
+	protected:
+		const static int HIT_POINTS = 100;
+		const static int ENERGY_POINTS = 100;
+		const static int ATTACK_DAMAGE = 30;
 
 	public:
 		FragTrap ();

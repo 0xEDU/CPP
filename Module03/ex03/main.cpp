@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:11:44 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 20:59:08 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/02 12:45:21 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void) {
 		DiamondTrap a("Hal");
 		ClapTrap b("Joy");
 
-		// a.attack("Atrocitus");
+		a.attack("Atrocitus");
 		a.takeDamage(3);
 		a.beRepaired(5);
 		b.attack("Atrocitus");
@@ -56,6 +56,13 @@ int	main(void) {
 		DiamondTrap a("Simon");
 
 		a.highFiveGuys();
+	}
+	std::cout << GREEN << "\n=== ScavTrap is guarding the gate ==="
+		<< END << std::endl;
+	{
+		DiamondTrap a("Simon");
+
+		a.guardGate();
 	}
 	return (0);
 }

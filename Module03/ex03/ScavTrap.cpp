@@ -6,12 +6,11 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:54:14 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/10 18:09:36 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/02 12:43:46 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-#include <iostream>
 
 ScavTrap::ScavTrap() {
 	std::cout << "A ScavTrap is constructed!!" << std::endl;
@@ -31,7 +30,7 @@ ScavTrap::ScavTrap(std::string name) {
 	return ;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &rhs) {
+ScavTrap::ScavTrap(const ScavTrap &rhs) : ClapTrap() {
 	*this = rhs;
 	return ;
 }
@@ -51,23 +50,28 @@ ScavTrap::~ScavTrap() {
 }
 
 void	ScavTrap::guardGate(void) {
-	std::cout << "ScavTrap " << this->_name << " is guarding the gate."
+	if (this->_hitPoints <= 0) {
+		std::cout << this->_type << " " << this->_name << " is already gone."
+			<< std::endl;
+		return ;
+	}
+	std::cout << this->_type << " " << this->_name << " is guarding the gate."
 		<< std::endl;
 	return ;
 }
 
 void	ScavTrap::attack(const std::string &target) {
 	if (this->_hitPoints <= 0) {
-		std::cout << "ScavTrap " << this->_name << " is already gone."
+		std::cout << this->_type << " " << this->_name << " is already gone."
 			<< std::endl;
 		return ;
 	}
 	if (this->_energyPoints <= 0) {
-		std::cout << "ScavTrap " << this->_name << " is out of energy."
+		std::cout << this->_type << " " << this->_name << " is out of energy."
 			<< std::endl;
 		return ;
 	}
-	std::cout << "ScavTrap " << this->_name << " hits " << target
+	std::cout << this->_type << " " << this->_name << " hits " << target
 				<< ", causing " << this->_attackDamage << " damage."
 				<< std::endl;
 	this->_energyPoints--;
