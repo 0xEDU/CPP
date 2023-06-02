@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: etachott < etachott@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:31:04 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/30 18:06:58 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/02 19:45:32 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ FragTrap::~FragTrap() {
 }
 
 void	FragTrap::highFiveGuys(void) {
+	if (this->_hitPoints <= 0) {
+		std::cout << this->_type << " " << this->_name << " is already gone."
+			<< std::endl;
+		return ;
+	}
 	std::cout << "FragTrap " << this->_name << " wants to high five!"
 		<< std::endl;
 	return ;
