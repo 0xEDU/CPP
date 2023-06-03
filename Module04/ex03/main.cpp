@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:41:11 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/02 23:47:08 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/03 02:01:50 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@
 // -> Implment MateriaSource functions;
 // -> Implment Character functions;
 // -> Fix leaks;
+// -> Ice and Cure tests;
 //
 // TODO:
 //
+// -> Character test
 // -> Write tests to assert that all functionalities are working as intended;
 
 int main(void) {
-	std::cout << YELLOW << "\n=== ICE TESTS ===" << END << std::endl;
+	std::cout << YELLOW << "=== ICE TESTS ===" << END << std::endl;
 	{
 		AMateria *ice = new Ice();
 		AMateria *clone;
@@ -62,6 +64,25 @@ int main(void) {
 		delete hero;
 		delete clone;
 		delete cure;
+	}
+	std::cout << YELLOW << "\n=== CHARACTER TESTS ===" << END << std::endl;
+	{
+		IMateriaSource *src = new MateriaSource();
+		ICharacter *me = new Character("me");
+
+		std::cout << "Character name: " << me->getName() << std::endl;
+		std::cout << "Equiping materia..." << std::endl;
+		AMateria *tmp;
+		tmp = src->createMateria("ice");
+		me->equip(tmp);
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		std::cout << "Unequiping materia..." << std::endl;
+		me->unequip(0);
+		me->unequip(1);
+
+		delete me;
+		delete src;
 	}
 	std::cout << YELLOW << "\n=== MANDATORY TESTS ===" << END << std::endl;
 	{
