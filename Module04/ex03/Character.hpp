@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:20:45 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/25 14:42:14 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/03 01:44:01 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Character : public ICharacter {
 	AMateria *_inventory[4];
 	std::string _name;
-	static int _count;
 
 	public:
 		Character ();

@@ -6,13 +6,11 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/26 14:51:14 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/03 01:47:54 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
-
-int Character::_count = 0;
 
 Character::Character() : _name("") {
 	for (int i = 0; i < 4; i++)
@@ -33,9 +31,9 @@ Character &Character::operator=(const Character &rhs) {
 }
 
 Character::~Character() {
-	if (this->_count > 0) {
-		for (int i = 0; i < this->_count; i++)
-			delete this->_inventory[i];
+	for (int i = 0; i < 4; i++) {
+		delete this->_inventory[i];
+		this->_inventory[i] = NULL;
 	}
 	return ;
 }
@@ -51,8 +49,12 @@ std::string const &Character::getName() const {
 }
 
 void Character::equip(AMateria *m) {
-	if (this->_count < 4)
-		this->_inventory[this->_count++] = m;
+	for (int i = 0; i < 4; i++) {
+		if (this->_inventory[i] == NULL) {
+			this->_inventory[i] = m;
+			return ;
+		}
+	}
 	return ;
 }
 
@@ -62,6 +64,7 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter &target) {
-	this->_inventory[idx]->use(target);
+	if ((idx >= 0 && idx < 4) && this->_inventory[idx] != NULL)
+		this->_inventory[idx]->use(target);
 	return ;
 }
