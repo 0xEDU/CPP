@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:41:11 by etachott          #+#    #+#             */
-/*   Updated: 2023/05/26 15:02:04 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/02 23:44:26 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,39 @@
 // -> Write tests to assert that all functionalities are working as intended;
 
 int main(void) {
-	std::cout << YELLOW << "=== MANDATORY TESTS ===" << END << std::endl;
+	std::cout << YELLOW << "\n=== ICE TESTS ===" << END << std::endl;
+	{
+		AMateria *ice = new Ice();
+		AMateria *clone;
+		ICharacter *villain = new Character("villain");
+
+		clone = ice->clone();
+		std::cout << "Ice type: " << clone->getType() << std::endl;
+		std::cout << "Clone type: " << clone->getType() << std::endl;
+		std::cout << "Using type: ";
+		ice->use(*villain);
+
+		delete villain;
+		delete clone;
+		delete ice;
+	}
+	std::cout << YELLOW << "\n=== CURE TESTS ===" << END << std::endl;
+	{
+		AMateria *cure = new Cure();
+		AMateria *clone;
+		ICharacter *villain = new Character("villain");
+
+		clone = cure->clone();
+		std::cout << "Cure type: " << clone->getType() << std::endl;
+		std::cout << "Clone type: " << clone->getType() << std::endl;
+		std::cout << "Using type: ";
+		cure->use(*villain);
+
+		delete villain;
+		delete clone;
+		delete cure;
+	}
+	std::cout << YELLOW << "\n=== MANDATORY TESTS ===" << END << std::endl;
 	{
 		IMateriaSource *src = new MateriaSource();
 		src->learnMateria(new Ice());
