@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/22 15:50:25 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:44:54 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,8 @@ int main (void) {
 		a.makeSound();
 		std::cout << a.getType() << std::endl;
 	}
-	std::cout << YELLOW << "\n=== NO POINTER USED" <<
-		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE ==="
-		<< END << std::endl;
-	{
-		Animal a = Dog();
-
-		a.makeSound();
-		std::cout << a.getType() << std::endl;
-	}
-	std::cout << YELLOW << "\n=== POINTER USED" << 
-		", ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE ==="
+	std::cout << YELLOW << "\n===  " \
+		"ASSIGNING BASE CLASS VARIABLE TO CHILD CLASS INSTANCE ==="
 		<< END << std::endl;
 	{
 		Animal *a = new Dog();
