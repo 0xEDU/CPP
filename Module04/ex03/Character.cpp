@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:08:03 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/03 01:47:54 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:30:40 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,16 @@ Character::Character(const Character &rhs) {
 }
 
 Character &Character::operator=(const Character &rhs) {
-	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = rhs._inventory[i];
-	this->_name = rhs._name;
+	if (this != &rhs) {
+		this->_name = rhs.getName();
+		for (int i = 0; i < 4; i++) {
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+			if (rhs.getAMateria(i)) {
+				this->_inventory[i] = rhs.getAMateria(i)->clone();
+			}
+		}
+	}
 	return *this;
 }
 
@@ -44,6 +51,13 @@ Character::Character(std::string name) : _name(name) {
 	return ;
 }
 
+AMateria *Character::getAMateria(int idx) const {
+	if ((0 <= idx && idx <= 4) && this->_inventory[idx] != NULL) {
+		return this->_inventory[idx];
+	}
+	return NULL;
+}
+
 std::string const &Character::getName() const {
 	return this->_name;
 }
@@ -59,7 +73,10 @@ void Character::equip(AMateria *m) {
 }
 
 void Character::unequip(int idx) {
-	(void) idx;
+	if ((0 <= idx && idx <= 4) && this->_inventory[idx] != NULL) {
+		this->_inventory[idx] = NULL;
+		return ;
+	}
 	return ;
 }
 
