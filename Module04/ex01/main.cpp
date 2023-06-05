@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:25:00 by edu               #+#    #+#             */
-/*   Updated: 2023/05/23 16:04:02 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:49:22 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main (void) {
 	std::cout << YELLOW << "=== DEEP COPY TESTS ===" << END << std::endl;
-	std::cout << "CAT DEEP COPY" << std::endl;
+	std::cout << "= CAT DEEP COPY =" << std::endl;
 	{
 		Cat cat;
 		Cat catto = cat;
@@ -25,7 +25,7 @@ int main (void) {
 		std::cout << cat.getIdea(0) << std::endl;
 		std::cout << catto.getIdea(0) << std::endl;
 	}
-	std::cout << "\nDOG DEEP COPY" << std::endl;
+	std::cout << "\n= DOG DEEP COPY =" << std::endl;
 	{
 		Dog dog;
 		Dog doggo = dog;
@@ -45,14 +45,14 @@ int main (void) {
 	std::cout << YELLOW << "\n=== ARRAY TESTS ===" << END << std::endl;
 	{
 		const Animal *animals[10];
-		std::cout << "CREATING ARRAY" << std::endl;
+		std::cout << "= CREATING ARRAY =" << std::endl;
 		for (int i = 0; i < 10; i++) {
 			if (i < 5)
 				animals[i] = new Cat();
 			else
 				animals[i] = new Dog();
 		}
-		std::cout << "\nDELETING ARRAY" << std::endl;
+		std::cout << "\n= DELETING ARRAY =" << std::endl;
 		for (int i = 0; i < 10; i++) {
 			delete animals[i];
 		}
