@@ -1,10 +1,11 @@
-NAME = burocracy
+NAME = forms
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
-		Bureaucrat.cpp
+		Bureaucrat.cpp \
+		Forms.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
