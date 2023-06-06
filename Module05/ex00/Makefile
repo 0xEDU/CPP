@@ -1,4 +1,4 @@
-NAME = materia
+NAME = burocracy
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
