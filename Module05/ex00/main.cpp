@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:19:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/06 09:52:14 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/06 17:52:57 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int main(void) {
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	std::cout << YELLOW << "\n=== OUT OF BOUNDS INCREMENT/DECREMENT ==="
+	std::cout << YELLOW << "\n=== OUT OF BOUNDS INCREMENT ==="
 		<< END << std::endl;
 	{
 		try {
@@ -76,10 +76,24 @@ int main(void) {
 
 			std::cout << a << std::endl;
 			std::cout << "ORIGINAL GRADE = " << a.getGrade() << std::endl;
+			std::cout << "CAUSING EXCEPTION BY INCREMENT..." << std::endl;
 			a.incrementGrade();
-			std::cout << "INCREMENTED = " << a.getGrade() << std::endl;
+		} catch (const Bureaucrat::GradeTooHighException &e) {
+			std::cerr << e.what() << std::endl;
+		} catch (const Bureaucrat::GradeTooLowException &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "\n=== OUT OF BOUNDS DECREMENT ==="
+		<< END << std::endl;
+	{
+		try {
+			Bureaucrat a("Hermes", 150);
+
+			std::cout << a << std::endl;
+			std::cout << "ORIGINAL GRADE = " << a.getGrade() << std::endl;
+			std::cout << "CAUSING EXCEPTION BY DECREMENT..." << std::endl;
 			a.decrementGrade();
-			std::cout << "DECREMENTED = " << a.getGrade() << std::endl;
 		} catch (const Bureaucrat::GradeTooHighException &e) {
 			std::cerr << e.what() << std::endl;
 		} catch (const Bureaucrat::GradeTooLowException &e) {
