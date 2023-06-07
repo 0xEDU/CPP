@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:11:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/06 20:00:32 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/07 20:50:30 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@
 // 	public:
 // 		void	beSigned(Bureaucrat &signer);
 //
-// 		const std::string	getName(void);
-// 		bool				getIsSigned(void);
-// 		const int			getRequiredSignGrade(void);
-// 		const int			getRequiredExecuteGrade(void);
+// const std::string	&getName(void) const;
+// bool				getIsSigned(void);
+// const int			&getRequiredSignGrade(void) const;
+// const int			&getRequiredExecuteGrade(void) const;
 // };
 //
 // std::ostream &operator<<(std::ostream &o, const Form &rhs);
@@ -85,28 +85,44 @@ Form::~Form() {
 	return ;
 }
 
-const char	*Form::GradeTooLowException::what() const throw() {
-	return ("Too bad! Grade is too low!");
+const char *Form::GradeTooLowException::what() const throw() {
+	return ("grade is too low!");
 }
 
-const char	*Form::GradeTooHighException::what() const throw() {
-	return ("Too bad! Grade is too high!");
+const char *Form::GradeTooHighException::what() const throw() {
+	return ("grade is too high!");
 }
 
-void	Form::beSigned(Bureaucrat &signer) {
-	if (signer.getGrade() >= this->_requiredSignGrade) {
+bool Form::beSigned(Bureaucrat &b) {
+	if (b.getGrade() <= this->_requiredSignGrade) {
 		this->_isSigned = true;
-		return ;
+		return (true);
 	} else {
 		throw Form::GradeTooLowException();
 	}
-	return ;
+	return (false);
 }
 
-std::ostream &operator<<(std::ostream &o, Form &rhs) {
+std::ostream &operator<<(std::ostream &o, Form const &rhs) {
 	o << "Name: " << rhs.getName() << std::endl
 		<< "Is signed: " << rhs.getIsSigned() << std::endl
 		<< "Minimum signing grade: " << rhs.getRequiredSignGrade() << std::endl
 		<< "Minimum execution grade: " << rhs.getRequiredExecuteGrade() << std::endl;
 	return (o);
+}
+
+const std::string &Form::getName(void) const {
+	return (this->_name);
+}
+
+bool Form::getIsSigned(void) const {
+	return (this->_isSigned);
+}
+
+const int &Form::getRequiredSignGrade(void) const {
+	return (this->_requiredSignGrade);
+}
+
+const int &Form::getRequiredExecuteGrade(void) const {
+	return (this->_requiredExecuteGrade);
 }

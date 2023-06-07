@@ -6,15 +6,19 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:57:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/06 18:28:47 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/07 20:52:06 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <iostream>
 #include "Bureaucrat.hpp"
+
+#include <iostream>
+
+class Bureaucrat;
 
 class Form {
 	private:
@@ -42,14 +46,14 @@ class Form {
 		Form &operator=(const Form &);
 		~Form();
 
-		void	beSigned(Bureaucrat &signer);
+		bool	beSigned(Bureaucrat &b);
 
 		const std::string	&getName(void) const;
-		bool				getIsSigned(void);
+		bool				getIsSigned(void) const;
 		const int			&getRequiredSignGrade(void) const;
 		const int			&getRequiredExecuteGrade(void) const;
 };
 
-std::ostream &operator<<(std::ostream &o, const Form &rhs);
+std::ostream &operator<<(std::ostream &o, Form const &rhs);
 
 #endif // !FORM_HPP
