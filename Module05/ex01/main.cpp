@@ -6,17 +6,20 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:19:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/06 17:52:57 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/06 20:02:05 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void) {
-	std::cout << YELLOW << "=== NORMAL BUREAUCRAT ===" << END << std::endl;
+	std::cout << YELLOW << "=== CREATING A FORM ===" << END << std::endl;
+	std::cout << YELLOW << "\n=== BUREAUCRAT SIGNING A FORM ===" << END << std::endl;
 	{
 		try {
 			Bureaucrat a("Hermes", 50);
+			Form b("Visa", 100, 30);
 
 			std::cout << a << std::endl;
 			std::cout << "NAME = " << a.getName() << std::endl;

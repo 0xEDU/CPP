@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:57:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/06 18:07:01 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/06 18:28:47 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,18 @@ class Form {
 
 		Form();
 		Form(const Form &);
+		Form(const std::string name,
+			const int minSignGrade,
+			const int minExecGrade);
 		Form &operator=(const Form &);
 		~Form();
 
 		void	beSigned(Bureaucrat &signer);
 
-		const std::string	getName(void);
+		const std::string	&getName(void) const;
 		bool				getIsSigned(void);
-		const int			getRequiredSignGrade(void);
-		const int			getRequiredExecuteGrade(void);
+		const int			&getRequiredSignGrade(void) const;
+		const int			&getRequiredExecuteGrade(void) const;
 };
 
 std::ostream &operator<<(std::ostream &o, const Form &rhs);
