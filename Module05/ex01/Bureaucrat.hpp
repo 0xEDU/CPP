@@ -6,18 +6,23 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:23:54 by edu               #+#    #+#             */
-/*   Updated: 2023/06/06 09:37:57 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/07 20:51:55 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
+
+#include "Form.hpp"
 
 #include <iostream>
 #include <stdexcept>
 
 #define YELLOW "\033[1;33m"
 #define END "\033[0m"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -43,6 +48,7 @@ class Bureaucrat {
 
 		void	incrementGrade(void);
 		void	decrementGrade(void);
+		void	signForm(Form &form);
 
 		const std::string	&getName(void) const;
 		int					getGrade(void) const;
