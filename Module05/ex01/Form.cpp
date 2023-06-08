@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:11:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/07 20:50:30 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:03:52 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ Form::Form(const std::string name, const int minSignGrade, const int minExecGrad
 	: _name(name),
 	_requiredSignGrade(minSignGrade),
 	_requiredExecuteGrade(minExecGrade) {
+	if (minSignGrade > 150 || minExecGrade > 150)
+		throw Form::GradeTooLowException();
+	if (minSignGrade < 1 || minExecGrade < 1)
+		throw Form::GradeTooHighException();
 	return ;
 }
 
@@ -86,11 +90,11 @@ Form::~Form() {
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-	return ("grade is too low!");
+	return ("Oh no! Grade is too low!");
 }
 
 const char *Form::GradeTooHighException::what() const throw() {
-	return ("grade is too high!");
+	return ("Oh no! Grade is too high!");
 }
 
 bool Form::beSigned(Bureaucrat &b) {
