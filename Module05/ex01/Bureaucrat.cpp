@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:55:15 by edu               #+#    #+#             */
-/*   Updated: 2023/06/07 21:08:27 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:18:55 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void Bureaucrat::decrementGrade(void) {
 	return ;
 }
 
-void	Bureaucrat::signForm(Form &form) {
+void Bureaucrat::signForm(Form &form) {
 	try {
 		form.beSigned(*this);
 		std::cout << this->_name << " signed " << form.getName() << std::endl;
