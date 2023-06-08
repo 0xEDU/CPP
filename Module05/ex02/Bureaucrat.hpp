@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:23:54 by edu               #+#    #+#             */
-/*   Updated: 2023/06/07 21:09:46 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:37:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #include <iostream>
 #include <stdexcept>
@@ -23,7 +23,7 @@
 #define RED "\033[1;31m"
 #define END "\033[0m"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -49,7 +49,7 @@ class Bureaucrat {
 
 		void	incrementGrade(void);
 		void	decrementGrade(void);
-		void	signForm(Form &form);
+		void	signForm(AForm &form);
 
 		const std::string	&getName(void) const;
 		int					getGrade(void) const;
