@@ -5,7 +5,8 @@ PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
+		AForm.cpp \
+		ShrubberyCreationForm.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
