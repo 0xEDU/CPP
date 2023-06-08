@@ -6,48 +6,13 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:11:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/07 21:03:52 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:17:30 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include <iostream>
 #include <ostream>
-
-// 	private:
-// 		const std::string	_name;
-// 		bool				_isSigned;
-// 		const int			_requiredSignGrade;
-// 		const int			_requiredExecuteGrade;
-//
-//	DONE:
-// 		Form();
-// 		Form(const Form &);
-// 		Form &operator=(const Form &);
-// 		~Form();
-//
-// 		class GradeTooHighException : public std::exception {
-// 			public:
-// 				const char	*what(void) const throw();
-// 		};
-//
-// 		class GradeTooLowException : public std::exception {
-// 			public:
-// 				const char	*what(void) const throw();
-// 		};
-//
-// 	TODO:
-//
-// 	public:
-// 		void	beSigned(Bureaucrat &signer);
-//
-// const std::string	&getName(void) const;
-// bool				getIsSigned(void);
-// const int			&getRequiredSignGrade(void) const;
-// const int			&getRequiredExecuteGrade(void) const;
-// };
-//
-// std::ostream &operator<<(std::ostream &o, const Form &rhs);
 
 Form::Form()
 	: _name(""),
