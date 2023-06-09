@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:11:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/08 06:23:23 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:23:06 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,10 @@ const char *AForm::FormIsNotSigned::what() const throw() {
 	return ("This form is not signed!");
 }
 
+const char *AForm::OpenFileFail::what() const throw() {
+	return ("ERROR: Failed to open file");
+}
+
 bool AForm::beSigned(Bureaucrat &b) {
 	if (b.getGrade() <= this->_requiredSignGrade) {
 		this->_isSigned = true;
@@ -93,6 +97,7 @@ void AForm::execute(Bureaucrat const & executor) const {
 		throw AForm::FormIsNotSigned();
 	if (executor.getGrade() > this->getRequiredExecuteGrade())
 		throw AForm::ExecGradeTooLowException();
+	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, AForm const &rhs) {

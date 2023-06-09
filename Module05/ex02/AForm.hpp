@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:57:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/08 06:10:55 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:23:53 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ class AForm {
 		};
 
 		class FormIsNotSigned : public std::exception {
+			public:
+				const char	*what(void) const throw();
+		};
+
+		class OpenFileFail : public std::exception {
 			public:
 				const char	*what(void) const throw();
 		};
