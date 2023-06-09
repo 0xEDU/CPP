@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 22:10:58 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 17:24:29 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:24:19 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,6 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 	return ;
-}
-
-const char *ShrubberyCreationForm::SignGradeTooLowException::what() const throw() {
-	return ("Grade too low to sign ShrubberyCreationForm!");
-}
-
-const char *ShrubberyCreationForm::ExecGradeTooLowException::what() const throw() {
-	return ("Grade too low to execute ShrubberyCreationForm!");
-}
-
-const char *ShrubberyCreationForm::FormIsNotSigned::what() const throw() {
-	return ("This form is not signed!!");
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat & executor) const {
