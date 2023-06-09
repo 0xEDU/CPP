@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:11:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/07 21:36:47 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/08 06:23:23 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,14 @@ AForm::AForm(const std::string name, const int minSignGrade, const int minExecGr
 	: _name(name),
 	_requiredSignGrade(minSignGrade),
 	_requiredExecuteGrade(minExecGrade) {
-	if (minSignGrade > 150 || minExecGrade > 150)
-		throw AForm::GradeTooLowException();
-	if (minSignGrade < 1 || minExecGrade < 1)
-		throw AForm::GradeTooHighException();
+	if (minSignGrade > 150)
+		throw AForm::SignGradeTooLowException();
+	if (minExecGrade > 150)
+		throw AForm::ExecGradeTooLowException();
+	if (minSignGrade < 1)
+		throw AForm::SignGradeTooHighException();
+	if (minExecGrade < 1)
+		throw AForm::ExecGradeTooHighException();
 	return ;
 }
 
@@ -54,12 +58,24 @@ AForm::~AForm() {
 	return ;
 }
 
-const char *AForm::GradeTooLowException::what() const throw() {
-	return ("Oh no! Grade is too low!");
+const char *AForm::SignGradeTooLowException::what() const throw() {
+	return ("Oh no! Sign grade is too low!");
 }
 
-const char *AForm::GradeTooHighException::what() const throw() {
-	return ("Oh no! Grade is too high!");
+const char *AForm::SignGradeTooHighException::what() const throw() {
+	return ("Oh no! Sign grade is too high!");
+}
+
+const char *AForm::ExecGradeTooLowException::what() const throw() {
+	return ("Oh no! Exec grade is too low!");
+}
+
+const char *AForm::ExecGradeTooHighException::what() const throw() {
+	return ("Oh no! Exec grade is too high!");
+}
+
+const char *AForm::FormIsNotSigned::what() const throw() {
+	return ("This form is not signed!");
 }
 
 bool AForm::beSigned(Bureaucrat &b) {
@@ -67,9 +83,16 @@ bool AForm::beSigned(Bureaucrat &b) {
 		this->_isSigned = true;
 		return (true);
 	} else {
-		throw AForm::GradeTooLowException();
+		throw AForm::SignGradeTooLowException();
 	}
 	return (false);
+}
+
+void AForm::execute(Bureaucrat const & executor) const {
+	if (this->getIsSigned() != true)
+		throw AForm::FormIsNotSigned();
+	if (executor.getGrade() > this->getRequiredExecuteGrade())
+		throw AForm::ExecGradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &o, AForm const &rhs) {

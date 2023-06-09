@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:57:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/08 01:27:36 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/08 06:10:55 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,27 @@ class AForm {
 		const int			_requiredExecuteGrade;
 
 	public:
-		class GradeTooHighException : public std::exception {
+		class SignGradeTooHighException : public std::exception {
 			public:
 				const char	*what(void) const throw();
 		};
 
-		class GradeTooLowException : public std::exception {
+		class SignGradeTooLowException : public std::exception {
+			public:
+				const char	*what(void) const throw();
+		};
+
+		class ExecGradeTooHighException : public std::exception {
+			public:
+				const char	*what(void) const throw();
+		};
+
+		class ExecGradeTooLowException : public std::exception {
+			public:
+				const char	*what(void) const throw();
+		};
+
+		class FormIsNotSigned : public std::exception {
 			public:
 				const char	*what(void) const throw();
 		};

@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 22:10:58 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/08 02:31:00 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/08 06:28:25 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,11 @@ const char *ShrubberyCreationForm::FormIsNotSigned::what() const throw() {
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat & executor) const {
+	AForm::execute(executor);
 	std::string filename = this->_target + "_shrubbery";
 	std::ofstream ostream(filename.c_str());
 
-	if (this->getIsSigned() != true)
-		throw ShrubberyCreationForm::FormIsNotSigned();
-	if (executor.getGrade() > this->getRequiredExecuteGrade())
-		throw ShrubberyCreationForm::ExecGradeTooLowException();
 	ostream << TREE ;
+	ostream.close();
 	return ;
 }
