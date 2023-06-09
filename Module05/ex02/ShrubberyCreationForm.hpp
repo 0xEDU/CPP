@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 22:01:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 17:51:39 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:26:29 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@
 " //////////////////////////// \n"
 
 class ShrubberyCreationForm : public AForm {
-	private:
-		std::string _target;
-
 	public:
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm &);

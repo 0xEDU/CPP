@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:57:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 17:23:53 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:27:40 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class AForm {
 		bool				_isSigned;
 		const int			_requiredSignGrade;
 		const int			_requiredExecuteGrade;
+
+	protected:
+		std::string _target;
 
 	public:
 		class SignGradeTooHighException : public std::exception {
@@ -63,6 +66,10 @@ class AForm {
 		AForm(const std::string name,
 			const int minSignGrade,
 			const int minExecGrade);
+		AForm(const std::string name,
+			const int minSignGrade,
+			const int minExecGrade,
+			std::string target);
 		AForm &operator=(const AForm &);
 		virtual ~AForm();
 

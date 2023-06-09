@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:11:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 17:23:06 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:29:48 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ AForm::AForm()
 	: _name(""),
 	_isSigned(0),
 	_requiredSignGrade(-1),
-	_requiredExecuteGrade(-1) {
+	_requiredExecuteGrade(-1),
+	_target("") {
 	return ;
 }
 
@@ -35,6 +36,25 @@ AForm::AForm(const std::string name, const int minSignGrade, const int minExecGr
 	: _name(name),
 	_requiredSignGrade(minSignGrade),
 	_requiredExecuteGrade(minExecGrade) {
+	if (minSignGrade > 150)
+		throw AForm::SignGradeTooLowException();
+	if (minExecGrade > 150)
+		throw AForm::ExecGradeTooLowException();
+	if (minSignGrade < 1)
+		throw AForm::SignGradeTooHighException();
+	if (minExecGrade < 1)
+		throw AForm::ExecGradeTooHighException();
+	return ;
+}
+
+AForm::AForm(const std::string name,
+			 const int minSignGrade,
+			 const int minExecGrade,
+			 std::string target)
+	: _name(name),
+	_requiredSignGrade(minSignGrade),
+	_requiredExecuteGrade(minExecGrade),
+	_target(target) {
 	if (minSignGrade > 150)
 		throw AForm::SignGradeTooLowException();
 	if (minExecGrade > 150)
