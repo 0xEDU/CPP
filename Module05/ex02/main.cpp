@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:19:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/09 20:15:24 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 20:33:02 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "AForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void) {
 	/* ShrubberyCreationForm tests */
@@ -108,6 +109,54 @@ int main(void) {
 
 			b.signForm(*a);
 			a->execute(c);
+
+			delete a;
+		} catch(std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	/* PresidentialPardonForm tests */
+	std::cout << RED << "\n\n==== PRESIDENTIAL PARDON FORM TESTS ===="
+		<< END << std::endl;
+	std::cout << YELLOW << "\n== LOW GRADE TO SIGN FORM ==="
+		<< END << std::endl;
+	{
+		try {
+			AForm *a = new PresidentialPardonForm("home");
+			Bureaucrat b("Hermes", 25);
+
+			b.signForm(*a); // Grade should be equal or higher than 25!
+			a->execute(b);
+
+			delete a;
+		} catch(std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "\n=== LOW GRADE TO EXECUTE FORM ===" 
+		<< END << std::endl;
+	{
+		try {
+			AForm *a = new PresidentialPardonForm("home");
+			Bureaucrat b("Hermes", 6);
+
+			b.signForm(*a);
+			a->execute(b); // Grade should be equal or higher than 5!
+
+			delete a;
+		} catch(std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "\n=== CREATING A ROBOTOMY REQUEST FORM ==="
+		<< END << std::endl;
+	{
+		try {
+			AForm *a = new PresidentialPardonForm("Bender");
+			Bureaucrat b("Zaphod", 1);
+
+			b.signForm(*a);
+			a->execute(b);
 
 			delete a;
 		} catch(std::exception &e) {
