@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 18:25:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 20:16:28 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 20:30:55 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void RobotomyRequestForm::execute(const Bureaucrat & executor) const {
 			<< std::endl;
 	else
 		std::cout << "Failed to robotomize " << this->_target << std::endl;
+	return ;
 }
