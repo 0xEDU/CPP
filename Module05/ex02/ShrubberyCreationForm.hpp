@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 22:01:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 18:26:29 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:34:11 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include "AForm.hpp"
 
-#include <iostream>
 #include <fstream>
 
 #define TREE \
