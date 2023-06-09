@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:57:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 18:27:40 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:46:30 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ class AForm {
 		AForm &operator=(const AForm &);
 		virtual ~AForm();
 
-		bool	beSigned(Bureaucrat &b);
+		bool			beSigned(Bureaucrat &b);
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 		const std::string	&getName(void) const;
