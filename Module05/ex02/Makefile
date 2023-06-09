@@ -1,4 +1,4 @@
-NAME = forms
+NAME = specificForms
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
