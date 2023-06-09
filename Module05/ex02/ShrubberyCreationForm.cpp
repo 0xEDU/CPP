@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 22:10:58 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/08 06:28:25 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:24:29 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	: AForm("Shrubbery", 145, 137),
+	: AForm("ShrubberyCreationForm", 145, 137),
 	_target(target) {
 	return ;
 }
@@ -52,6 +52,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat & executor) const {
 	AForm::execute(executor);
 	std::string filename = this->_target + "_shrubbery";
 	std::ofstream ostream(filename.c_str());
+	if (ostream.fail())
+		throw AForm::OpenFileFail();
 
 	ostream << TREE ;
 	ostream.close();
