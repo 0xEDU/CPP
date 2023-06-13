@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 16:20:16 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/12 16:35:06 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:34:51 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define INTERN_HPP
 
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 class Intern {
 	public:
