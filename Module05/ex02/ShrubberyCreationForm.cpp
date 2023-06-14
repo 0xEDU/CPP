@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 22:10:58 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 18:30:08 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:11:55 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs)
+		: AForm("ShrubberyCreationForm", 145, 137, rhs._target) {
 	*this = rhs;
 	return ;
 }

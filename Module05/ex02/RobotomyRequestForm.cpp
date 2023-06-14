@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 18:25:41 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 20:30:55 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:12:37 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rhs) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rhs)
+	: AForm("RobotomyRequestForm", 72, 45, rhs._target) {
 	*this = rhs;
 	return ;
 }
