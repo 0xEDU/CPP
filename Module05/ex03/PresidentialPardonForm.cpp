@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:28:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 20:36:21 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:48:17 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &rhs) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &rhs)
+	: AForm("PresidentialPardonForm", 25, 5, rhs._target) {
 	*this = rhs;
 	return ;
 }
