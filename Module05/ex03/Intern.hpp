@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 16:20:16 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/13 18:34:51 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:00:26 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 
 class Intern {
 	public:
+		class InvalidFormException : public std::exception {
+			public:
+				const char	*what(void) const throw();
+		};
+
 		Intern();
 		Intern(const Intern &);
 		Intern &operator=(const Intern &);
