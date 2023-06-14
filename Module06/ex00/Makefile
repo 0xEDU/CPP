@@ -3,7 +3,8 @@ NAME = convert
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
-SRCS =	main.cpp
+SRCS =	main.cpp \
+		ScalarConverter.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
