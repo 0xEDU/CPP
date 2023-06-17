@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/17 15:05:55 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 15:59:43 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void formattedPrintInt(std::string c) {
 
 void formattedPrintFloat(std::string c) {
 	std::cout << YELLOW << "float: " << END;
-	// if (c == "nan")
-	// 	c = "Nan";
 	if (isCharLiteral(c) == true) {
 		std::cout << static_cast<float>(c[0]) << ".0f" << std::endl;
 	} else {
