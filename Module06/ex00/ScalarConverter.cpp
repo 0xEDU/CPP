@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:30:55 by edu               #+#    #+#             */
-/*   Updated: 2023/06/17 14:48:12 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 14:51:08 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static bool isValid(std::string str) {
 	for (size_t i = 0; i < str.length(); i++) {
 		str[i] = std::tolower(str[i]);
 	}
-	if (str == "nan" || str == "-inf" || str == "+inf"
+	if (str.length() == 1 || str == "nan" || str == "-inf" || str == "+inf"
 		|| str == "-inff" || str == "+inff")
 		return true;
 	for (size_t i = 0; i < str.length(); i++) {
