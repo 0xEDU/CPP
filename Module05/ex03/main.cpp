@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:19:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/14 16:05:53 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/17 18:50:43 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ int main(void) {
 		try {
 			invf = someRandomIntern.makeForm("invalid form", "Bender");
 			a.signForm(*invf);
-			invf->execute(a);
+			a.executeForm(*invf);
 		} catch(std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
-		delete invf;
 	}
 	std::cout << YELLOW << "\n=== CREATING A ROBOTOMY REQUEST ==="
 		<< END << std::endl;
@@ -41,7 +40,7 @@ int main(void) {
 
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		a.signForm(*rrf);
-		rrf->execute(a);
+		a.executeForm(*rrf);
 
 		delete rrf;
 	}
@@ -54,7 +53,7 @@ int main(void) {
 
 		ppf = someRandomIntern.makeForm("presidential pardon", "Bender");
 		a.signForm(*ppf);
-		ppf->execute(a);
+		a.executeForm(*ppf);
 
 		delete ppf;
 	}
@@ -67,7 +66,7 @@ int main(void) {
 
 		scf = someRandomIntern.makeForm("shrubbery creation", "home");
 		a.signForm(*scf);
-		scf->execute(a);
+		a.executeForm(*scf);
 
 		delete scf;
 	}
