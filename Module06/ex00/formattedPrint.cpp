@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/17 15:59:43 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:22:11 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,38 @@ static bool isCharLiteral(std::string c) {
 	return false;
 }
 
+static bool isSpecialString(std::string c) {
+	if (c == "nan" || c == "-inf" || c == "+inf"
+		|| c == "-inff" || c == "+inff")
+		return true;
+	return false;
+}
+
 void formattedPrintChar(std::string c) {
 	std::cout << YELLOW << "char: " << END;
+	if (isSpecialString(c)) {
+		std::cout << "impossible" << std::endl;
+		return ;
+	}
 	if (isCharLiteral(c) == true) {
 		std::cout << "\'" << c[0] << "\'" << std::endl;
 	} else {
 		int converted = std::atoi(c.c_str());
 
-		std::cout << "\'" << static_cast<char>(converted) << "\'" << std::endl;
+		if (32 <= converted && converted <= 126)
+			std::cout << "\'" << static_cast<char>(converted) << "\'" << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
 	}
 	return ;
 }
 
 void formattedPrintInt(std::string c) {
 	std::cout << YELLOW << "int: " << END;
+	if (isSpecialString(c)) {
+		std::cout << "impossible" << std::endl;
+		return ;
+	}
 	if (isCharLiteral(c) == true) {
 		std::cout << static_cast<int>(c[0]) << std::endl;
 	} else {
