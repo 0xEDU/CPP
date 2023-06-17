@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:55:15 by edu               #+#    #+#             */
-/*   Updated: 2023/06/06 17:54:43 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 18:25:20 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,11 @@ void Bureaucrat::incrementGrade(void) {
 	this->_grade--;
 	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	if (this->_grade > 150)
-		throw Bureaucrat::GradeTooLowException();
 	return ;
 }
 
 void Bureaucrat::decrementGrade(void) {
 	this->_grade++;
-	if (this->_grade < 1)
-		throw Bureaucrat::GradeTooHighException();
 	if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	return ;
