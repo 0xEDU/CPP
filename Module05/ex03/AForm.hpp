@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:57:29 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 18:46:30 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 18:31:47 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,17 @@ class AForm {
 
 		AForm();
 		AForm(const AForm &);
-		AForm(const std::string name,
+		AForm(
+			const std::string name,
 			const int minSignGrade,
-			const int minExecGrade);
-		AForm(const std::string name,
+			const int minExecGrade
+		);
+		AForm(
+			const std::string name,
 			const int minSignGrade,
 			const int minExecGrade,
-			std::string target);
+			std::string target
+		);
 		AForm &operator=(const AForm &);
 		virtual ~AForm();
 

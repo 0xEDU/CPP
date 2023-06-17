@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 08:23:54 by edu               #+#    #+#             */
-/*   Updated: 2023/06/08 01:47:40 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 18:36:53 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ class Bureaucrat {
 		void	incrementGrade(void);
 		void	decrementGrade(void);
 		void	signForm(const AForm &form);
+		void	executeForm(AForm const & form);
 
 		const std::string	&getName(void) const;
 		int					getGrade(void) const;
