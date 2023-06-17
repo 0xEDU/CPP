@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/17 13:27:08 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 15:05:55 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static bool isCharLiteral(std::string c) {
 	char upper = 'A';
 	char lower = 'a';
 
+	if (c.length() > 1)
+		return false;
 	for (int i = 0; i < 26; i++) {
 		if (c[0] == upper++ || c[0] == lower++)
 			return true;
@@ -48,6 +50,8 @@ void formattedPrintInt(std::string c) {
 
 void formattedPrintFloat(std::string c) {
 	std::cout << YELLOW << "float: " << END;
+	// if (c == "nan")
+	// 	c = "Nan";
 	if (isCharLiteral(c) == true) {
 		std::cout << static_cast<float>(c[0]) << ".0f" << std::endl;
 	} else {
