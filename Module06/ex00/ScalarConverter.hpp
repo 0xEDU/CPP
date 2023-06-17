@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:20:37 by edu               #+#    #+#             */
-/*   Updated: 2023/06/14 16:32:58 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/14 16:51:54 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 #include <iostream>
 
 class ScalarConverter {
-	public:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &);
-		ScalarConverter &operator=(const ScalarConverter &);
 		~ScalarConverter();
+	public:
+		ScalarConverter &operator=(const ScalarConverter &);
 
-		void test(void);
+		static void convert(char *input);
 };
 #endif
