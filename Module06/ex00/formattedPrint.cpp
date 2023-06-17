@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/17 16:22:11 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 17:50:38 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void formattedPrintChar(std::string c) {
 		int converted = std::atoi(c.c_str());
 
 		if (32 <= converted && converted <= 126)
-			std::cout << "\'" << static_cast<char>(converted) << "\'" << std::endl;
+			std::cout << "\'" << static_cast<char>(converted) << "\'"
+				<< std::endl;
 		else
 			std::cout << "Non displayable" << std::endl;
 	}
@@ -75,7 +76,8 @@ void formattedPrintFloat(std::string c) {
 		int convertedInt = std::atoi(c.c_str());
 
 		if (convertedFloat == convertedInt)
-			std::cout << static_cast<float>(convertedFloat) << ".0f" << std::endl;
+			std::cout << static_cast<float>(convertedFloat) << ".0f"
+				<< std::endl;
 		else
 			std::cout << static_cast<float>(convertedFloat) << "f" << std::endl;
 	}
@@ -90,7 +92,8 @@ void formattedPrintDouble(std::string c) {
 		int convertedInt = std::atoi(c.c_str());
 
 		if (convertedDouble == convertedInt)
-			std::cout << static_cast<double>(convertedDouble) << ".0" << std::endl;
+			std::cout << static_cast<double>(convertedDouble) << ".0"
+					<< std::endl;
 		else
 			std::cout << static_cast<double>(convertedDouble) << std::endl;
 	}
