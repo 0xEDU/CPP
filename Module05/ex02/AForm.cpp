@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:11:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/09 19:57:59 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 18:42:47 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ void AForm::execute(Bureaucrat const & executor) const {
 		throw AForm::FormIsNotSigned();
 	if (executor.getGrade() > this->getRequiredExecuteGrade())
 		throw AForm::ExecGradeTooLowException();
-	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, AForm const &rhs) {
