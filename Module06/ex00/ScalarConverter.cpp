@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:30:55 by edu               #+#    #+#             */
-/*   Updated: 2023/06/17 14:54:00 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/17 15:57:07 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ static bool isValid(std::string str) {
 		|| str == "-inff" || str == "+inff")
 		return true;
 	for (size_t i = 0; i < str.length(); i++) {
-		if (!std::isdigit(str[i]) && str[i] != '.' && !isValidFloat(str))
+		if (!std::isdigit(str[i]) && str[i] != '.' && !isValidFloat(str)
+				&& str[0] != '-')
 			return false;
 	}
 	return true;
