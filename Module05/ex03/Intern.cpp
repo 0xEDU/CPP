@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 16:20:40 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/14 16:04:36 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/17 18:54:42 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ AForm *Intern::makeForm(std::string name, std::string target) {
 												&presidentialPardon};
 
 	for (int i = 0; i < 3; i++) {
-		if (names[i] == name)
+		if (names[i] == name) {
+			std::cout << "Intern creates " << name << " form!" << std::endl;
 			return (funcs[i](target));
+		}
 	}
 	throw Intern::InvalidFormException();
 	return (NULL);
