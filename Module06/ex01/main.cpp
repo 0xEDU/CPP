@@ -6,14 +6,20 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 17:56:37 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/17 18:20:11 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/18 14:01:26 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-int main (int argc, char *argv[])
-{
+static std::ostream &operator<<(std::ostream &o, Data &data) {
+	o << "Role: " << data.role << std::endl
+		<< "Name: " << data.name << std::endl
+		<< "Password: " << data.password << std::endl;
+	return o;
+}
+
+int main (void) {
 	Data importantData = {
 		.role = "user",
 		.name = "marvin",
@@ -22,8 +28,15 @@ int main (int argc, char *argv[])
 	Data *importantDataCopy;
 	uintptr_t ptr;
 
+	std::cout << YELLOW << "=== ORIGINAL DATA ===\n" << END
+		<< importantData << std::endl;
+
 	ptr = Serializer::serialize(&importantData);
-	std::cout << ptr;
+	std::cout << YELLOW << "=== SERIALIZED VALUE ===\n" << END
+		<< "PTR: " << ptr << std::endl;
+
 	importantDataCopy = Serializer::deserialize(ptr);
-	return 0;
+	std::cout << YELLOW << "\n=== DESERIALIZED DATA ===\n" << END
+		<< *importantDataCopy << std::endl;
+	return (0);
 }
