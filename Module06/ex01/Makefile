@@ -4,8 +4,7 @@ PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
 SRCS =	main.cpp \
-		Serializer.cpp \
-		Data.cpp
+		Serializer.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
