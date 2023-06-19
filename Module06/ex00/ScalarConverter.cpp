@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:30:55 by edu               #+#    #+#             */
-/*   Updated: 2023/06/17 15:57:07 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/19 01:02:54 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ static bool isValid(std::string str) {
 }
 
 void ScalarConverter::convert(char *input) {
-	std::string str = input;
+	// std::string str = input;
+	std::string str = "checar min e max"; // TODO
 
 	if (isValid(str) == false)
 		return ;
