@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:46:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/19 01:10:50 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/19 01:14:30 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ class Array {
 
 		Array &operator=(const Array &rhs) {
 			this->_size = rhs._size;
+			this->_content = rhs._content;
 			return *this;
-		}; // Deep copy
+		}; // NEEDS TO BE A DEEP COPY
 
 		~Array() {
 			delete[] this->_content;
