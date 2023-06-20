@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:30:55 by edu               #+#    #+#             */
-/*   Updated: 2023/06/20 17:45:47 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:56:18 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static std::string getType(std::string str) {
 		return "float";
 	if (str.size() == 1 && std::isalpha(str[0]))
 		return "char";
-	if (str.find('.') != std::string::npos)
+	if (str.find('.') != std::string::npos || isSpecialString(str))
 		return "double";
 	return "int";
 }
