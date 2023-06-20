@@ -6,13 +6,13 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/20 17:53:34 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:55:50 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "formattedPrint.hpp"
 
-static bool isSpecialString(std::string c) {
+bool isSpecialString(std::string c) {
 	if (c == "nan" || c == "nanf"
 		|| c == "-inf" || c == "+inf"
 		|| c == "-inff" || c == "+inff")
