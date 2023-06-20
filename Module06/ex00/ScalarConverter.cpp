@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:30:55 by edu               #+#    #+#             */
-/*   Updated: 2023/06/19 12:35:15 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:40:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ static bool isValid(std::string str) {
 				&& str[0] != '-')
 			return false;
 	}
+	if (std::atol(str.c_str()) > std::numeric_limits<int>::max()
+		|| std::atol(str.c_str()) < std::numeric_limits<int>::min())
+		return false;
 	return true;
 }
 

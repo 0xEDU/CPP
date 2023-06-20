@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:20:37 by edu               #+#    #+#             */
-/*   Updated: 2023/06/14 16:51:54 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/20 14:39:59 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <limits>
 
 class ScalarConverter {
 		ScalarConverter();
