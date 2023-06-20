@@ -6,11 +6,13 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/17 17:50:38 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/19 21:27:23 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "formattedPrint.hpp"
+#include <iomanip>
+#include <cmath>
 
 static bool isCharLiteral(std::string c) {
 	char upper = 'A';
@@ -63,7 +65,7 @@ void formattedPrintInt(std::string c) {
 	} else {
 		int converted = std::atoi(c.c_str());
 
-		std::cout << static_cast<int>(converted) << std::endl;
+		std::cout << std::fixed << static_cast<int>(converted) << std::endl;
 	}
 }
 
@@ -72,14 +74,18 @@ void formattedPrintFloat(std::string c) {
 	if (isCharLiteral(c) == true) {
 		std::cout << static_cast<float>(c[0]) << ".0f" << std::endl;
 	} else {
-		float convertedFloat = std::atof(c.c_str());
-		int convertedInt = std::atoi(c.c_str());
+		float convertedFloat = std::strtof(c.c_str(), NULL);
+		std::cout << convertedFloat << std::endl;
+		float temp = convertedFloat;
+		int decimalPlaces = 0;
 
-		if (convertedFloat == convertedInt)
-			std::cout << static_cast<float>(convertedFloat) << ".0f"
-				<< std::endl;
-		else
-			std::cout << static_cast<float>(convertedFloat) << "f" << std::endl;
+		while (std::abs(temp - std::floor(temp)) > 0.0001) {
+			temp *= 10.0;
+			decimalPlaces++;
+		}
+		decimalPlaces == 0 ? decimalPlaces++ : decimalPlaces;
+		std::cout << std::fixed << std::setprecision(decimalPlaces)
+			<< static_cast<float>(convertedFloat) << "f" << std::endl;
 	}
 }
 
@@ -88,11 +94,11 @@ void formattedPrintDouble(std::string c) {
 	if (isCharLiteral(c) == true) {
 		std::cout << static_cast<float>(c[0]) << ".0" << std::endl;
 	} else {
-		double convertedDouble = std::atof(c.c_str());
-		int convertedInt = std::atoi(c.c_str());
+		double convertedDouble = std::strtod(c.c_str(), NULL);
+		long int convertedInt = std::atol(c.c_str());
 
 		if (convertedDouble == convertedInt)
-			std::cout << static_cast<double>(convertedDouble) << ".0"
+			std::cout << static_cast<double>(convertedDouble)
 					<< std::endl;
 		else
 			std::cout << static_cast<double>(convertedDouble) << std::endl;
