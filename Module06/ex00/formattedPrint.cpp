@@ -6,13 +6,15 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/19 21:27:23 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:39:19 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "formattedPrint.hpp"
+#include <cctype>
 #include <iomanip>
 #include <cmath>
+#include <limits>
 
 static bool isCharLiteral(std::string c) {
 	char upper = 'A';
@@ -45,7 +47,7 @@ void formattedPrintChar(std::string c) {
 	} else {
 		int converted = std::atoi(c.c_str());
 
-		if (32 <= converted && converted <= 126)
+		if (std::isprint(static_cast<char>(converted)))
 			std::cout << "\'" << static_cast<char>(converted) << "\'"
 				<< std::endl;
 		else
@@ -75,7 +77,6 @@ void formattedPrintFloat(std::string c) {
 		std::cout << static_cast<float>(c[0]) << ".0f" << std::endl;
 	} else {
 		float convertedFloat = std::strtof(c.c_str(), NULL);
-		std::cout << convertedFloat << std::endl;
 		float temp = convertedFloat;
 		int decimalPlaces = 0;
 
