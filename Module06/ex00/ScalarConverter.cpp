@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:30:55 by edu               #+#    #+#             */
-/*   Updated: 2023/06/20 15:52:35 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:45:47 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,14 @@ void ScalarConverter::convert(char *input) {
 		return ;
 	type = getType(str);
 	std::cout << type << std::endl;
-	formattedPrintChar(str);
-	formattedPrintInt(str);
-	formattedPrintFloat(str);
-	formattedPrintDouble(str);
+	if (type == "char") {
+		formattedPrintChar(str);
+	} else if (type == "float") {
+		formattedPrintFloat(str);
+	} else if (type == "int") {
+		formattedPrintInt(str);
+	} else {
+		formattedPrintDouble(str);
+	}
 	return ;
 }
