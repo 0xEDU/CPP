@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 15:58:05 by edu               #+#    #+#             */
-/*   Updated: 2023/06/18 16:26:42 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/21 13:56:48 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void swap(T &a, T &b) {
 }
 
 template<typename T>
-const T &min(const T a, const T b) {
+const T &min(const T &a, const T &b) {
 	return (a >= b ? b : a);
 }
 
 template<typename T>
-const T &max(const T a, const T b) {
+const T &max(const T &a, const T &b) {
 	return (b >= a ? b : a);
 }
 #endif
