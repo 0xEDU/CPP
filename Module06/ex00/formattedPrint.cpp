@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/21 13:13:11 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:25:51 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void formattedPrintInt(std::string c) {
 	std::cout << YELLOW << "char: " << END;
 	if (isSpecialString(c))
 		std::cout << "impossible" << std::endl;
-	else if (!std::isprint(convertedInt))
+	else if (32 > convertedInt || convertedInt > 126)
 		std::cout << "non displayable" << std::endl;
 	else
 		std::cout << "\'" << static_cast<char>(convertedInt) << "\'"
@@ -84,7 +84,7 @@ void formattedPrintFloat(std::string c) {
 	std::cout << YELLOW << "char: " << END;
 	if (isSpecialString(c))
 		std::cout << "impossible" << std::endl;
-	else if (!std::isprint(convertedFloat))
+	else if (32 > convertedFloat || convertedFloat > 126)
 		std::cout << "non displayable" << std::endl;
 	else
 		std::cout << "\'" << static_cast<char>(convertedFloat) << "\'"
@@ -123,7 +123,7 @@ void formattedPrintDouble(std::string c) {
 	std::cout << YELLOW << "char: " << END;
 	if (isSpecialString(c))
 		std::cout << "impossible" << std::endl;
-	else if (!std::isprint(convertedDouble))
+	else if (32 > convertedDouble || convertedDouble > 126)
 		std::cout << "non displayable" << std::endl;
 	else
 		std::cout << "\'" << static_cast<char>(convertedDouble) << "\'"
