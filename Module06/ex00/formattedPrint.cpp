@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:56:41 by edu               #+#    #+#             */
-/*   Updated: 2023/06/20 17:55:50 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:13:11 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,30 @@ bool isSpecialString(std::string c) {
 }
 
 void formattedPrintChar(std::string c) {
+	char convertedChar = c[0];
+
+	/* CHAR CONVERSION */
 	std::cout << YELLOW << "char: " << END;
 	if (isSpecialString(c)) {
 		std::cout << "impossible" << std::endl;
 		return ;
 	}
-	else if (!std::isprint(static_cast<char>(c[0])))
+	else if (!std::isprint(static_cast<char>(convertedChar)))
 		std::cout << "non displayable" << std::endl;
 	else
-		std::cout << "\'" << c[0] << "\'" << std::endl;
+		std::cout << "\'" << convertedChar << "\'" << std::endl;
+
+	/* INT CONVERSION */
 	std::cout << YELLOW << "int: " << END
-		<< static_cast<int>(c[0]) << std::endl;
+		<< static_cast<int>(convertedChar) << std::endl;
+
+	/* FLOAT CONVERSION */
 	std::cout << YELLOW << "float: " << END
-		<< static_cast<float>(c[0]) << ".0f" << std::endl;
+		<< static_cast<float>(convertedChar) << ".0f" << std::endl;
+
+	/* DOUBLE CONVERSION */
 	std::cout << YELLOW << "double: " << END << 
-		static_cast<double>(c[0]) << ".0" << std::endl;
+		static_cast<double>(convertedChar) << ".0" << std::endl;
 	return ;
 }
 
