@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:53:46 by edu               #+#    #+#             */
-/*   Updated: 2023/06/21 14:32:34 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:54:48 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,34 @@ int main(void) {
 		} catch(std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
+	}
+	std::cout << YELLOW << "\n=== COPYING AN ARRAY" << END << std::endl;
+	{
+		Array<double> arr = Array<double>(3);
+		for (size_t i = 0; i < arr.size(); i++) {
+			arr[i] = 2.1;
+		}
+
+		std::cout << "Original array: ";
+		for (size_t i = 0; i < arr.size(); i++) {
+			std::cout << arr[i] << " ";
+		}
+		std::cout << std::endl;
+
+		Array<double> copy = arr;
+		for (size_t i = 0; i < arr.size(); i++) {
+			arr[i] *= 2;
+		}
+		std::cout << "Modified array: ";
+		for (size_t i = 0; i < arr.size(); i++) {
+			std::cout << arr[i] << " ";
+		}
+		std::cout << std::endl;
+		std::cout << "Copy of the original array: ";
+		for (size_t i = 0; i < copy.size(); i++) {
+			std::cout << copy[i] << " ";
+		}
+		std::cout << std::endl;
 	}
 	return 0;
 }
