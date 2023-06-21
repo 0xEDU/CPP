@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:25:54 by edu               #+#    #+#             */
-/*   Updated: 2023/06/18 15:14:51 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/21 13:53:58 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,11 @@ int main(void) {
 	}
 	std::cout << YELLOW << "\n=== CREATING AN INVALID CLASS ===\n" << END;
 	{
-		Base *q = NULL;
+		Base *q = new Base();
 
 		identify(q);
 		identify(*q);
+		delete q;
 	}
 	std::cout << YELLOW << "\n=== CREATING A RANDOM CLASS ===\n" << END;
 	{
