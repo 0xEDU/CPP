@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:46:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/19 01:14:30 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/21 14:24:34 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <stdexcept>
 
 typedef unsigned int t_size;
 
@@ -50,6 +51,11 @@ class Array {
 		/* ================================================================= */
 
 		/* OPERATOR OVERLOADS ============================================== */
+		T &operator[](size_t index) {
+			if (index > (this->_size - 1) || index < 0)
+				throw std::out_of_range("Index out of range!");
+			return this->_content[index];
+		};
 		/* ================================================================= */
 
 		/* MEMBER FUNCTIONS ================================================ */
