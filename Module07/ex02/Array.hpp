@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:46:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/21 14:24:34 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:54:33 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,23 @@ class Array {
 		/* CANONICAL FORM ================================================== */
 		Array() : _size(0), _content(new T[0]) {};
 
-		Array(const Array &rhs) {
+		Array(const Array &rhs) : _size(rhs.size()), _content(NULL) {
 			*this = rhs;
 			return ;
 		};
 
-		Array &operator=(const Array &rhs) {
-			this->_size = rhs._size;
-			this->_content = rhs._content;
+		Array<T> &operator=(const Array<T> &rhs) {
+			if (this != &rhs) {
+				if (this->_size)
+					delete this->_content;
+				this->_size = rhs.size();
+				if (this->_size)
+					this->_content = new T[this->_size];
+				for (size_t i = 0; i < this->_size; i++)
+					this->_content[i] = rhs[i];
+			}
 			return *this;
-		}; // NEEDS TO BE A DEEP COPY
+		};
 
 		~Array() {
 			delete[] this->_content;
@@ -52,6 +59,12 @@ class Array {
 
 		/* OPERATOR OVERLOADS ============================================== */
 		T &operator[](size_t index) {
+			if (index > (this->_size - 1) || index < 0)
+				throw std::out_of_range("Index out of range!");
+			return this->_content[index];
+		};
+
+		const T &operator[](size_t index) const {
 			if (index > (this->_size - 1) || index < 0)
 				throw std::out_of_range("Index out of range!");
 			return this->_content[index];
