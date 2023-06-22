@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:46:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/21 14:54:33 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:04:10 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include <stdexcept>
 
 typedef unsigned int t_size;
@@ -34,7 +35,7 @@ class Array {
 			return ;
 		};
 
-		Array<T> &operator=(const Array<T> &rhs) {
+		Array &operator=(const Array &rhs) {
 			if (this != &rhs) {
 				if (this->_size)
 					delete this->_content;
