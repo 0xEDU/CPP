@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:53:46 by edu               #+#    #+#             */
-/*   Updated: 2023/06/21 14:54:48 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:08:37 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(void) {
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	std::cout << YELLOW << "\n=== COPYING AN ARRAY" << END << std::endl;
+	std::cout << YELLOW << "\n=== COPYING AN ARRAY ===" << END << std::endl;
 	{
 		Array<double> arr = Array<double>(3);
 		for (size_t i = 0; i < arr.size(); i++) {
@@ -67,7 +67,8 @@ int main(void) {
 		}
 		std::cout << std::endl;
 
-		Array<double> copy = arr;
+		Array<double> copy1 = arr;
+		Array<double> copy2(arr);
 		for (size_t i = 0; i < arr.size(); i++) {
 			arr[i] *= 2;
 		}
@@ -76,9 +77,14 @@ int main(void) {
 			std::cout << arr[i] << " ";
 		}
 		std::cout << std::endl;
-		std::cout << "Copy of the original array: ";
-		for (size_t i = 0; i < copy.size(); i++) {
-			std::cout << copy[i] << " ";
+		std::cout << "Copy of the original array made with '=' overload: ";
+		for (size_t i = 0; i < copy1.size(); i++) {
+			std::cout << copy1[i] << " ";
+		}
+		std::cout << std::endl;
+		std::cout << "Copy of the original array made with constructor: ";
+		for (size_t i = 0; i < copy2.size(); i++) {
+			std::cout << copy2[i] << " ";
 		}
 		std::cout << std::endl;
 	}
