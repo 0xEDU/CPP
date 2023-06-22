@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:46:21 by edu               #+#    #+#             */
-/*   Updated: 2023/06/22 13:04:10 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:05:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #define ARRAY_HPP
 
 #include <iostream>
-#include <cstdlib>
 #include <stdexcept>
 
 typedef unsigned int t_size;
