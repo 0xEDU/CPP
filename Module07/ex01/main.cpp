@@ -6,7 +6,7 @@
 /*   By: edu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:56:16 by edu               #+#    #+#             */
-/*   Updated: 2023/06/18 17:13:17 by edu              ###   ########.fr       */
+/*   Updated: 2023/06/23 14:26:14 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,17 @@
 #define END "\033[0m"
 
 int main(void) {
-	std::cout << YELLOW << "=== DOUBLING AN INT ARRAY ===" << END
+	std::cout << YELLOW << "=== PRINTING A INT ARRAY AS CONST ===" << END
+		<< std::endl;
+	{
+		int arr[10];
+		for (int i = 0; i < 10; i++)
+			arr[i] = i;
+
+		iter(arr, 10, elementPrint<const int>);
+		std::cout << std::endl;
+	}
+	std::cout << YELLOW << "\n=== DOUBLING AN INT ARRAY ===" << END
 		<< std::endl;
 	{
 		int arr[10];
@@ -29,7 +39,7 @@ int main(void) {
 		for (int i = 0; i < 10; i++)
 			std::cout << arr[i] << " ";
 
-		iter(arr, 10, elementDouble);
+		iter(arr, 10, elementDouble<int>);
 		std::cout << "\nModified: ";
 		for (int i = 0; i < 10; i++)
 			std::cout << arr[i] << " ";
@@ -46,7 +56,7 @@ int main(void) {
 		for (int i = 0; i < 10; i++)
 			std::cout << arr[i] << " ";
 
-		iter(arr, 10, elementDouble);
+		iter(arr, 10, elementDouble<char>);
 		std::cout << "\nModified: ";
 		for (int i = 0; i < 10; i++)
 			std::cout << arr[i] << " ";
@@ -64,7 +74,7 @@ int main(void) {
 		for (int i = 0; i < 10; i++)
 			std::cout << arr[i] << " ";
 
-		iter(arr, 10, elementDouble);
+		iter(arr, 10, elementDouble<float>);
 		std::cout << "\nModified: ";
 		for (int i = 0; i < 10; i++)
 			std::cout << arr[i] << " ";
