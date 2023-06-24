@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:58:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 20:27:46 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:58:31 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int main(void) {
 				v.push_back(i);
 			}
 			std::vector<int>::iterator it = easyfind(v, 1);
-			std::cout << "Found " << *it << "!" << std::endl;
+			std::cout << "Found '" << *it << "' at " << std::distance(v.begin(), it)
+				<< "!" << std::endl;
 		} catch(std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
@@ -49,7 +50,8 @@ int main(void) {
 				d.push_back(i);
 			}
 			std::deque<int>::iterator it = easyfind(d, 3);
-			std::cout << "Found " << *it << "!" << std::endl;
+			std::cout << "Found '" << *it << "' at " << std::distance(d.begin(), it)
+				<< "!" << std::endl;
 		} catch(std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
