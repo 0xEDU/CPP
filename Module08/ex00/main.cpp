@@ -6,10 +6,11 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:58:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 20:17:19 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:27:46 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <deque>
 #include <list>
 #include <vector>
 #include <algorithm>
@@ -25,12 +26,29 @@ int main(void) {
 		<< END << std::endl;
 	{
 		try {
+			std::cout << "Searching for 1" << std::endl;
 			std::vector<int> v;
 
 			for (int i = 0; i < 5; i++) {
 				v.push_back(i);
 			}
-			std::vector<int>::iterator it = easyfind(v, 3);
+			std::vector<int>::iterator it = easyfind(v, 1);
+			std::cout << "Found " << *it << "!" << std::endl;
+		} catch(std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "\n=== FINDING AN ELEMENT INSIDE A DEQUE ==="
+		<< END << std::endl;
+	{
+		try {
+			std::cout << "Searching for 3" << std::endl;
+			std::deque<int> d;
+
+			for (int i = 0; i < 5; i++) {
+				d.push_back(i);
+			}
+			std::deque<int>::iterator it = easyfind(d, 3);
 			std::cout << "Found " << *it << "!" << std::endl;
 		} catch(std::exception &e) {
 			std::cerr << e.what() << std::endl;
@@ -40,6 +58,7 @@ int main(void) {
 		<< END << std::endl;
 	{
 		try {
+			std::cout << "Searching for -1" << std::endl;
 			std::list<int> l;
 
 			for (int i = 0; i < 5; i++) {
