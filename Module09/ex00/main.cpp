@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 04:01:54 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/25 08:27:50 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 10:06:19 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ int main(int argc, char *argv[]) {
 		return (1);
 	}
 	try {
-		BitcoinExchange be = BitcoinExchange();
-		// BitcoinExchange.loadDB("data.csv");
+		BitcoinExchange btc;
+
+		btc.loadDB("data.csv");
+		(void) argv;
 		// BitcoinExchange.openFile(argv[1]);
 	} catch(std::exception &e) {
 		std::cerr << e.what() << std::endl;
