@@ -6,12 +6,11 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 23:02:26 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/25 00:34:21 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 01:29:44 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <vector>
 
 // 	Variables:
 //
@@ -117,7 +116,19 @@ void Span::addNumbers(
 int Span::shortestSpan(void) {
 	if (this->_N <= 1 || this->_currentCapacity <= 1)
 		throw SpanNotPossible();
-	return (0);
+
+	std::vector<int> copy(this->_content);
+	std::vector<int>::iterator it = copy.begin() + 1;
+	int diff = std::numeric_limits<int>::max();
+
+	std::sort(copy.begin(), copy.end());
+	while (it != copy.end()) {
+		int abs = std::abs(*it - *(it - 1));
+		if (abs < diff)
+			diff = abs;
+		it++;
+	}
+	return (diff);
 }
 
 int Span::longestSpan(void) {

@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 21:24:25 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/25 00:34:28 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 01:04:37 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <cstddef>
 #include <iterator>
 #include <vector>
+#include <algorithm>
+#include <limits>
 
 typedef unsigned int t_capacity;
 
