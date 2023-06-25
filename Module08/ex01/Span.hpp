@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 21:24:25 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 22:51:03 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:01:21 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef unsigned int t_capacity;
 class Span {
 	private:
 		t_capacity		_N;
+		t_capacity		_currentCapacity;
 		std::vector<int>_content;
 
 	public:
@@ -29,6 +30,16 @@ class Span {
 		Span(const Span &);
 		Span &operator=(const Span &);
 		~Span();
+
+		class SpanIsFull : public std::exception {
+			public:
+				const char *what(void) const throw();
+		};
+
+		class SpanNotPossible : public std::exception {
+			public:
+				const char *what(void) const throw();
+		};
 
 		Span(t_capacity N);
 
