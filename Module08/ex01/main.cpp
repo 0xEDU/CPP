@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 21:20:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 23:30:26 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:37:27 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@ int main() {
 			Span sp = Span(10);
 
 			sp.shortestSpan();
+		} catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "=== FILLING A SPAN ==="
+		<< END << std::endl;
+	{
+		try {
+			Span sp = Span(10);
+
+			for (int i = 0; i < 10; i++)
+				sp.addNumber(i);
 		} catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
