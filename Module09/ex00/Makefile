@@ -1,4 +1,4 @@
-NAME = mutantStack
+NAME = bitcoin
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
