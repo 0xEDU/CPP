@@ -3,7 +3,8 @@ NAME = spam
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
 
-SRCS =	main.cpp
+SRCS =	main.cpp \
+		Span.cpp
 
 OBJS = ${SRCS:%.cpp=$(PATH_OBJS)%.o}
 
