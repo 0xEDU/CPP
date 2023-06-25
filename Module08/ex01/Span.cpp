@@ -6,49 +6,11 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 23:02:26 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/25 01:29:44 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 01:45:45 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-
-// 	Variables:
-//
-// 	t_capacity		_N;
-// 	t_capacity		_currentCapacity;
-// 	std::vector<int>_content;
-//
-//	DONE:
-//
-// 	Span();
-// 	Span(const Span &);
-// 	Span &operator=(const Span &);
-// 	~Span();
-//
-// 	class SpanIsFull : public std::exception {
-// 		public:
-// 			const char *what(void) const throw();
-// 	};
-//
-// 	class SpanNotPossible : public std::exception {
-// 		public:
-// 			const char *what(void) const throw();
-// 	};
-//
-// 	Span(t_capacity N);
-//
-// 	void	addNumber(const int number);
-//
-// 	TODO:
-//
-// 	void	addNumbers(
-// 		std::vector<int>::iterator begin,
-// 		std::vector<int>::iterator end,
-// 		const int number
-// 	);
-//
-// 	int	shortestSpan();
-// 	int	longestSpan();
 
 /* Orthodox canonical form ================================================= */
 Span::Span() : _N(0), _currentCapacity(0), _content(0) {
@@ -134,7 +96,11 @@ int Span::shortestSpan(void) {
 int Span::longestSpan(void) {
 	if (this->_N <= 1 || this->_currentCapacity <= 1)
 		throw SpanNotPossible();
-	return (0);
+	std::vector<int> copy(this->_content);
+
+	std::vector<int>::iterator	max = std::max_element(copy.begin(), copy.end()),
+								min = std::min_element(copy.begin(), copy.end());
+	return (*max - *min);
 }
 
 int Span::at(int position) const {
