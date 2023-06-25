@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 21:20:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/25 01:28:02 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 01:44:49 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int main() {
 
 			sp.addNumbers(v.begin(), v.end());
 			sp.addNumber(32);
-			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << "The shortest span is: " << sp.shortestSpan() << std::endl;
 		} catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
@@ -119,23 +119,49 @@ int main() {
 			Span sp = Span(25000);
 
 			sp.addNumber(32);
-			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << "The shortest span is: " << sp.shortestSpan() << std::endl;
 		} catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	// std::cout << YELLOW << "=== SUBJECT TESTS ===" << END << std::endl;
-	// {
-	// 	Span sp = Span(5);
-	//
-	// 	sp.addNumber(6);
-	// 	sp.addNumber(3);
-	// 	sp.addNumber(17);
-	// 	sp.addNumber(9);
-	// 	sp.addNumber(11);
-	//
-	// 	std::cout << sp.shortestSpan() << std::endl;
-	// 	std::cout << sp.longestSpan() << std::endl;
-	// }
+	std::cout << YELLOW << "\n=== FINDING THE LONGEST SPAN ==="
+		<< END << std::endl;
+	{
+		try {
+			Span sp = Span(25000);
+			std::vector<int> v(24999, 42);
+
+			sp.addNumbers(v.begin(), v.end());
+			sp.addNumber(32);
+			std::cout << "The longest span is: " << sp.longestSpan() << std::endl;
+		} catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "\n=== INVALID LONGEST SPAN ==="
+		<< END << std::endl;
+	{
+		try {
+			Span sp = Span(25000);
+
+			sp.addNumber(32);
+			std::cout << "The longest span is: " << sp.longestSpan() << std::endl;
+		} catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "\n=== SUBJECT TESTS ===" << END << std::endl;
+	{
+		Span sp = Span(5);
+
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
 	return 0;
 }
