@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 21:20:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/25 00:37:48 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 01:28:02 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,32 @@ int main() {
 			sp.addNumbers(v.begin(), v.end());
 			std::cout << "Size after adding multiple numbers: " <<
 				sp.getCurrentCapacity() << std::endl;
+		} catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "\n=== FINDING THE SHORTEST SPAN ==="
+		<< END << std::endl;
+	{
+		try {
+			Span sp = Span(25000);
+			std::vector<int> v(24999, 42);
+
+			sp.addNumbers(v.begin(), v.end());
+			sp.addNumber(32);
+			std::cout << sp.shortestSpan() << std::endl;
+		} catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << YELLOW << "\n=== INVALID SHORTEST SPAN ==="
+		<< END << std::endl;
+	{
+		try {
+			Span sp = Span(25000);
+
+			sp.addNumber(32);
+			std::cout << sp.shortestSpan() << std::endl;
 		} catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
