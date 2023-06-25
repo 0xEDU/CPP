@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 23:02:26 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 23:32:05 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:43:54 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,14 @@ Span::Span(t_capacity N)
 /* ========================================================================= */
 
 /* Member functions ======================================================== */
+void Span::addNumber(const int number) {
+	if (this->_currentCapacity == this->_N)
+		throw SpanIsFull();
+	this->_currentCapacity++;
+	this->_content.push_back(number);
+	return ;
+}
+
 int Span::shortestSpan(void) {
 	if (this->_N <= 1 || this->_currentCapacity <= 1)
 		throw SpanNotPossible();
