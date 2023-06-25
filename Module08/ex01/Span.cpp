@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 23:02:26 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 23:09:19 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:15:59 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,13 @@ Span &Span::operator=(const Span &rhs) {
 
 Span::~Span() {
 	return ;
+}
+
+const char *Span::SpanIsFull::what() const throw() {
+	return ("The Span is full!");
+}
+
+const char *Span::SpanNotPossible::what() const throw() {
+	return ("No Span can be found! \
+			Either the storage is empty or it has only one element");
 }
