@@ -1,4 +1,4 @@
-NAME = bitcoin
+NAME = btc
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
