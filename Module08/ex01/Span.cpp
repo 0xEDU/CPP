@@ -6,11 +6,12 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 23:02:26 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 23:43:54 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 00:34:21 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <vector>
 
 // 	Variables:
 //
@@ -37,9 +38,10 @@
 //
 // 	Span(t_capacity N);
 //
+// 	void	addNumber(const int number);
+//
 // 	TODO:
 //
-// 	void	addNumber(const int number);
 // 	void	addNumbers(
 // 		std::vector<int>::iterator begin,
 // 		std::vector<int>::iterator end,
@@ -101,6 +103,17 @@ void Span::addNumber(const int number) {
 	return ;
 }
 
+void Span::addNumbers(
+	std::vector<int>::iterator begin,
+	std::vector<int>::iterator end
+) {
+	while (begin != end) {
+		this->addNumber(*begin);
+		begin++;
+	}
+	return ;
+}
+
 int Span::shortestSpan(void) {
 	if (this->_N <= 1 || this->_currentCapacity <= 1)
 		throw SpanNotPossible();
@@ -111,5 +124,13 @@ int Span::longestSpan(void) {
 	if (this->_N <= 1 || this->_currentCapacity <= 1)
 		throw SpanNotPossible();
 	return (0);
+}
+
+int Span::at(int position) const {
+	return this->_content[position];
+}
+
+t_capacity Span::getCurrentCapacity() const {
+	return this->_currentCapacity;
 }
 /* ========================================================================= */

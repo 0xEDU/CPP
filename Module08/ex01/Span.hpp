@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 21:24:25 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 23:01:21 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 00:34:28 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,14 @@ class Span {
 		void	addNumber(const int number);
 		void	addNumbers(
 			std::vector<int>::iterator begin,
-			std::vector<int>::iterator end,
-			const int number
+			std::vector<int>::iterator end
 		);
 
 		int	shortestSpan();
 		int	longestSpan();
+
+		int	at(int position) const;
+		t_capacity	getCurrentCapacity() const;
 };
 
 #endif // !SPAN_HPP
