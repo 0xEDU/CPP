@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 21:20:18 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/25 00:33:51 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/25 00:37:48 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,9 @@ int main() {
 	std::cout << YELLOW << "=== CREATING AN EMPTY SPAN ==="
 		<< END << std::endl;
 	{
-		try {
-			Span sp = Span(10);
+		Span sp = Span(0);
 
-			sp.shortestSpan();
-		} catch (std::exception &e) {
-			std::cerr << e.what() << std::endl;
-		}
+		std::cout << "Size: " << sp.getCurrentCapacity() << std::endl;
 	}
 	std::cout << YELLOW << "\n=== FILLING A SPAN ==="
 		<< END << std::endl;
