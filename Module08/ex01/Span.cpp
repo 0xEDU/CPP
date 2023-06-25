@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 23:02:26 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/24 23:15:59 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:32:05 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 // 	Span &operator=(const Span &);
 // 	~Span();
 //
-// 	TODO:
-//
 // 	class SpanIsFull : public std::exception {
 // 		public:
 // 			const char *what(void) const throw();
@@ -39,6 +37,8 @@
 //
 // 	Span(t_capacity N);
 //
+// 	TODO:
+//
 // 	void	addNumber(const int number);
 // 	void	addNumbers(
 // 		std::vector<int>::iterator begin,
@@ -49,7 +49,8 @@
 // 	int	shortestSpan();
 // 	int	longestSpan();
 
-Span::Span() : _N(0), _currentCapacity(0), _content({0}) {
+/* Orthodox canonical form ================================================= */
+Span::Span() : _N(0), _currentCapacity(0), _content(0) {
 	return ;
 }
 
@@ -71,12 +72,36 @@ Span &Span::operator=(const Span &rhs) {
 Span::~Span() {
 	return ;
 }
+/* ========================================================================= */
 
+/* Exceptions ============================================================== */
 const char *Span::SpanIsFull::what() const throw() {
 	return ("The Span is full!");
 }
 
 const char *Span::SpanNotPossible::what() const throw() {
-	return ("No Span can be found! \
-			Either the storage is empty or it has only one element");
+	return ("No Span can be found!" \
+			" Either the storage is empty or it has only one element.");
 }
+/* ========================================================================= */
+
+/* Constructor ============================================================= */
+Span::Span(t_capacity N)
+	: _N(N), _currentCapacity(0), _content(std::vector<int>(0)) {
+	return ;
+}
+/* ========================================================================= */
+
+/* Member functions ======================================================== */
+int Span::shortestSpan(void) {
+	if (this->_N <= 1 || this->_currentCapacity <= 1)
+		throw SpanNotPossible();
+	return (0);
+}
+
+int Span::longestSpan(void) {
+	if (this->_N <= 1 || this->_currentCapacity <= 1)
+		throw SpanNotPossible();
+	return (0);
+}
+/* ========================================================================= */
