@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 13:25:30 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/26 13:28:19 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:58:57 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define RPN_HPP
 
 #include <iostream>
+#include <stack>
+#include <algorithm>
 
 class RPN {
 	private:
@@ -26,6 +28,8 @@ class RPN {
 		~RPN();
 
 		RPN(char *input);
+
+		int calculate(void);
 };
 
 #endif // !RPN_HPP
