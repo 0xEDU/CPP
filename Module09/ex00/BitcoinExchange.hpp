@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 04:03:22 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/25 09:53:22 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:42:56 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class BitcoinExchange {
 		std::map<int, double> _dbMap;
 		std::map<int, double> _inputMap;
 
+		void calculatePrice(std::string date, double value);
+
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &);
@@ -37,7 +39,12 @@ class BitcoinExchange {
 			const char *what(void) const throw();
 		};
 
+		class FileNotFound : public std::exception {
+			const char *what(void) const throw();
+		};
+
 		void	loadDB(const std::string db);
+		void	processFile(const std::string db);
 };
 
 #endif // !BITCOINEXCHANGE_HPP
