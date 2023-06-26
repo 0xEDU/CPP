@@ -1,4 +1,4 @@
-NAME = RPN
+NAME = PmergeMe
 
 PATH_SRCS = ./
 PATH_OBJS = ./objects/
