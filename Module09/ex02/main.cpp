@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:12:59 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/27 16:45:35 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:05:29 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@ int main(int argc, char *argv[]) {
 
 		PmergeMe pme(argv);
 
-		std::cout << pme.getVector() << std::endl;
-		std::cout << pme.getList() << std::endl;
-		// pme.vMergeInsertionSort();
+		std::cout << "Before: " << pme.getVector() << std::endl;
+		pme.vMergeInsertionSort();
 		// pme.lMergeInsertionSort();
+		// std::cout << "After: " << pme.getVector() << std::endl;
+		// std::cout << "Time to precess a range of " << pme.getSize()
+		// 	<< " elements with std::vector : " << pme.getVectorTime() << " us"
+		// 	<< std::endl;
+		// std::cout << "Time to precess a range of " << pme.getSize()
+		// 	<< " elements with std::list : " << pme.getListTime() << " us"
+		// 	<< std::endl;
 	} catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
