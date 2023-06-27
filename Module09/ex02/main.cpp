@@ -6,13 +6,14 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:12:59 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/26 19:13:30 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:24:09 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 int main(int argc, char *argv[]) {
+	PmergeMe pme;
 	(void) argc;
 	(void) argv;
 	return (0);
