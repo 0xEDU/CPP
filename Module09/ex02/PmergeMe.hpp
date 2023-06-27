@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:13:52 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/27 16:44:32 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:16:18 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 
 class PmergeMe {
 	private:
-		std::vector<int> _v;
-		std::list<int> _l;
+		std::vector<int>	_v;
+		std::list<int>		_l;
+		int					_size;
 
 	public:
 		PmergeMe();
@@ -35,6 +36,8 @@ class PmergeMe {
 		std::list<int>		getList(void) const;
 
 		static void validateInput(int argc, char *argv[]);
+
+		void vMergeInsertionSort(void);
 };
 
 std::ostream &operator<<(std::ostream &o, std::vector<int> v);

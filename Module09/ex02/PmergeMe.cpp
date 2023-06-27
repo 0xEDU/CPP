@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:14:17 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/27 16:56:50 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/27 19:52:38 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ PmergeMe::PmergeMe(char *argv[]) {
 
 		this->_v.push_back(val);
 		this->_l.push_back(val);
+		this->_size++;
 	}
 	return ;
 }
@@ -60,6 +61,15 @@ std::ostream &operator<<(std::ostream &o, const std::list<int> l) {
 
 	for (; it != l.end(); it++) {
 		o << *it << " ";
+	}
+	return o;
+}
+
+std::ostream &operator<<(std::ostream &o, const std::vector<std::pair<int, int> > v) {
+	std::vector<std::pair<int, int> >::const_iterator it = v.begin();
+
+	for (; it != v.end(); it++) {
+		o << it->first << " : " << it->second << std::endl;
 	}
 	return o;
 }
@@ -105,6 +115,54 @@ void PmergeMe::validateInput(int argc, char **argv) {
 		v.push_back(std::atoi(argv[i]));
 	}
 	checkForDuplicates(v);
+	return ;
+}
+/* ========================================================================== */
+
+// https://en.wikipedia.org/wiki/Merge-insertion_sort
+/* Ford-Johnson Algorithm for Vector ======================================== */
+inline static std::vector<std::pair<int, int> >
+makePairs(const std::vector<int> &v) {
+	std::vector<std::pair<int, int> > pairs;
+
+	for (std::vector<int>::size_type i = 0; i + 1 < v.size(); i += 2)
+		pairs.push_back(std::make_pair(v[i], v[i + 1]));
+	if (v.size() % 2 != 0)
+		pairs.push_back(std::make_pair(*(v.end() - 1), -1));
+	return pairs;
+}
+
+// pair<small, big>
+inline static void
+sortPairs(std::vector<std::pair<int, int> > &pairs) {
+	std::vector<std::pair<int, int> >::iterator it = pairs.begin();
+
+	for (; it != pairs.end(); it++) {
+		it->first > it->second
+			? std::swap(it->first, it->second)
+			: (void) it;
+	}
+	return ;
+}
+
+inline static void
+recursiveSortBiggest(
+	std::vector<std::pair<int, int> > pairs,
+	std::vector<int> &S
+) {
+
+	(void)pairs;
+	(void)S;
+	return ;
+}
+
+void PmergeMe::vMergeInsertionSort(void) {
+	std::vector<std::pair<int, int> > pairs = makePairs(this->_v); // 1
+	std::vector<int> S;
+	
+	sortPairs(pairs); // 2
+	recursiveSortBiggest(pairs, S); // 3
+	std::cout << pairs << std::endl;
 	return ;
 }
 /* ========================================================================== */
