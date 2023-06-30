@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:14:17 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/27 19:52:38 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/30 14:07:25 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,23 +146,58 @@ sortPairs(std::vector<std::pair<int, int> > &pairs) {
 }
 
 inline static void
-recursiveSortBiggest(
-	std::vector<std::pair<int, int> > pairs,
-	std::vector<int> &S
-) {
+merge(std::vector<std::pair<int, int> > &pairs, int begin, int mid, int end) {
+	std::size_t leftArrayIndex = 0;
+	std::size_t rightArrayIndex = 0;
+	std::size_t mergedArrayIndex = begin;
 
-	(void)pairs;
-	(void)S;
+	std::vector<std::pair<int, int> >
+		leftArray(pairs.begin() + begin, pairs.begin() + mid + 1),
+		rightArray(pairs.begin() + mid + 1, pairs.begin() + end + 1);
+
+	for (;
+		leftArrayIndex < leftArray.size()
+		&& rightArrayIndex < rightArray.size();
+		mergedArrayIndex++
+		) {
+		if (leftArray[leftArrayIndex].second <= rightArray[rightArrayIndex].second) {
+			pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
+			leftArrayIndex++;
+		} else {
+			pairs[mergedArrayIndex] = rightArray[rightArrayIndex];
+			rightArrayIndex++;
+		}
+	}
+	for (; leftArrayIndex < leftArray.size(); leftArrayIndex++) {
+		pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
+		mergedArrayIndex++;
+	}
+	for (; rightArrayIndex < rightArray.size(); rightArrayIndex++) {
+		pairs[mergedArrayIndex] = rightArray[rightArrayIndex];
+		mergedArrayIndex++;
+	}
+	return ;
+}
+
+inline static void
+mergeSort(std::vector<std::pair<int, int> > &pairs, int begin, int end) {
+	if (begin >= end)
+		return ;
+	int mid = begin + (end - begin) / 2;
+	mergeSort(pairs, begin, mid);
+	mergeSort(pairs, mid + 1, end);
+	merge(pairs, begin, mid, end);
 	return ;
 }
 
 void PmergeMe::vMergeInsertionSort(void) {
-	std::vector<std::pair<int, int> > pairs = makePairs(this->_v); // 1
 	std::vector<int> S;
+	std::vector<std::pair<int, int> > pairs = makePairs(this->_v); // 1
 	
 	sortPairs(pairs); // 2
-	recursiveSortBiggest(pairs, S); // 3
-	std::cout << pairs << std::endl;
+	std::cout << "Before: \n" << pairs << std::endl;
+	mergeSort(pairs, 0, pairs.size() - 1); // 3
+	std::cout << "Before: \n" << pairs << std::endl;
 	return ;
 }
 /* ========================================================================== */
