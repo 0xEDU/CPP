@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:13:52 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/27 17:16:18 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/30 14:41:45 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+
+typedef std::pair<int, int> intPair;
+typedef std::pair<std::vector<int>, std::vector<int> > vectorPair;
+typedef std::vector<intPair>::iterator intPairIt;
 
 class PmergeMe {
 	private:

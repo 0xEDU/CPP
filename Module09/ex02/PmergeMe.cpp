@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:14:17 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/30 14:07:25 by etachott         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:09:10 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ std::ostream &operator<<(std::ostream &o, const std::list<int> l) {
 	return o;
 }
 
-std::ostream &operator<<(std::ostream &o, const std::vector<std::pair<int, int> > v) {
-	std::vector<std::pair<int, int> >::const_iterator it = v.begin();
+std::ostream &operator<<(std::ostream &o, const std::vector<intPair > v) {
+	std::vector<intPair >::const_iterator it = v.begin();
 
 	for (; it != v.end(); it++) {
 		o << it->first << " : " << it->second << std::endl;
@@ -121,9 +121,10 @@ void PmergeMe::validateInput(int argc, char **argv) {
 
 // https://en.wikipedia.org/wiki/Merge-insertion_sort
 /* Ford-Johnson Algorithm for Vector ======================================== */
-inline static std::vector<std::pair<int, int> >
+/* ------------------------------------------------------------------------ 1 */
+inline static std::vector<intPair>
 makePairs(const std::vector<int> &v) {
-	std::vector<std::pair<int, int> > pairs;
+	std::vector<intPair > pairs;
 
 	for (std::vector<int>::size_type i = 0; i + 1 < v.size(); i += 2)
 		pairs.push_back(std::make_pair(v[i], v[i + 1]));
@@ -131,11 +132,13 @@ makePairs(const std::vector<int> &v) {
 		pairs.push_back(std::make_pair(*(v.end() - 1), -1));
 	return pairs;
 }
+/* -------------------------------------------------------------------------- */
 
 // pair<small, big>
+/* ------------------------------------------------------------------------ 2 */
 inline static void
-sortPairs(std::vector<std::pair<int, int> > &pairs) {
-	std::vector<std::pair<int, int> >::iterator it = pairs.begin();
+sortPairs(std::vector<intPair> &pairs) {
+	std::vector<intPair >::iterator it = pairs.begin();
 
 	for (; it != pairs.end(); it++) {
 		it->first > it->second
@@ -144,14 +147,17 @@ sortPairs(std::vector<std::pair<int, int> > &pairs) {
 	}
 	return ;
 }
+/* -------------------------------------------------------------------------- */
 
+// https://www.geeksforgeeks.org/merge-sort/
+/* ------------------------------------------------------------------------ 3 */
 inline static void
-merge(std::vector<std::pair<int, int> > &pairs, int begin, int mid, int end) {
+merge(std::vector<intPair > &pairs, int begin, int mid, int end) {
 	std::size_t leftArrayIndex = 0;
 	std::size_t rightArrayIndex = 0;
 	std::size_t mergedArrayIndex = begin;
 
-	std::vector<std::pair<int, int> >
+	std::vector<intPair >
 		leftArray(pairs.begin() + begin, pairs.begin() + mid + 1),
 		rightArray(pairs.begin() + mid + 1, pairs.begin() + end + 1);
 
@@ -180,7 +186,7 @@ merge(std::vector<std::pair<int, int> > &pairs, int begin, int mid, int end) {
 }
 
 inline static void
-mergeSort(std::vector<std::pair<int, int> > &pairs, int begin, int end) {
+mergeSort(std::vector<intPair > &pairs, int begin, int end) {
 	if (begin >= end)
 		return ;
 	int mid = begin + (end - begin) / 2;
@@ -189,15 +195,52 @@ mergeSort(std::vector<std::pair<int, int> > &pairs, int begin, int end) {
 	merge(pairs, begin, mid, end);
 	return ;
 }
+/* -------------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------------ 4 */
+inline static vectorPair
+createMainChainAndPend(std::vector<intPair> &pairs) {
+	vectorPair mainChainAndPend;
+	std::vector<int> &mainChain = mainChainAndPend.first;
+	std::vector<int> &pend = mainChainAndPend.second;
+
+	for (intPairIt it = pairs.begin(); it != pairs.end(); it++) {
+		mainChain.push_back(it->second);
+		if (it->first == -1)
+			continue ;
+		pend.push_back(it->first);
+	}
+	return mainChainAndPend;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------ 5 */
+inline static void
+insertPendIntoMainChain(vectorPair &mainChainAndPend) {
+	mainChainAndPend.first.insert(
+		mainChainAndPend.first.begin(),
+		mainChainAndPend.second.front()
+	); // Insert first element
+	return ;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------ Wrapper */
 void PmergeMe::vMergeInsertionSort(void) {
 	std::vector<int> S;
-	std::vector<std::pair<int, int> > pairs = makePairs(this->_v); // 1
+	std::vector<intPair> pairs = makePairs(this->_v); // 1
+	vectorPair mainChainAndPend;
 	
 	sortPairs(pairs); // 2
 	std::cout << "Before: \n" << pairs << std::endl;
 	mergeSort(pairs, 0, pairs.size() - 1); // 3
-	std::cout << "Before: \n" << pairs << std::endl;
+	mainChainAndPend = createMainChainAndPend(pairs); // 4
+	std::cout << "After: \n" << pairs << std::endl;
+
+	insertPendIntoMainChain(mainChainAndPend); //5
+	std::cout << "Main Chain: " << mainChainAndPend.first << std::endl;
+	std::cout << "Pend: " << mainChainAndPend.second << std::endl;
 	return ;
 }
+/* -------------------------------------------------------------------------- */
 /* ========================================================================== */
