@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:14:17 by etachott          #+#    #+#             */
-/*   Updated: 2023/07/01 04:16:41 by etachott         ###   ########.fr       */
+/*   Updated: 2023/07/01 04:18:50 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,13 +278,16 @@ insertPendIntoMainChain(vectorPair &mainChainAndPend) {
 /* ------------------------------------------------------------------ Wrapper */
 void PmergeMe::vMergeInsertionSort(void) {
 	std::vector<int> S;
-	std::vector<intPair> pairs = makePairs(this->_v); // 1
 	vectorPair mainChainAndPend;
 	
-	sortPairs(pairs); // 2
-	mergeSort(pairs, 0, pairs.size() - 1); // 3
+	std::vector<intPair> pairs = makePairs(this->_v); // 1
+	sortPairs(pairs);                                 // 2
+	mergeSort(pairs, 0, pairs.size() - 1);            // 3
 	mainChainAndPend = createMainChainAndPend(pairs); // 4
-	this->_v = insertPendIntoMainChain(mainChainAndPend); //5
+	S = insertPendIntoMainChain(mainChainAndPend);    // 5
+	// if (hasLeftover(pairs))                        // 6
+	// 	insertLeftover(S);
+	this->_v = S;
 	return ;
 }
 /* -------------------------------------------------------------------------- */
