@@ -6,15 +6,16 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:14:17 by etachott          #+#    #+#             */
-/*   Updated: 2023/07/01 04:18:50 by etachott         ###   ########.fr       */
+/*   Updated: 2023/07/01 17:02:51 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <algorithm>
 
 /* Canonical Form =========================================================== */
-PmergeMe::PmergeMe() : _v(std::vector<int>(0)), _l(std::list<int>(0)) {
+PmergeMe::PmergeMe() : _v(std::vector<int>(0)), _d(std::deque<int>(0)),
+	_vectorTime(0), _dequeTime(0), _size(0) {
+	this->_size = 0;
 	return ;
 }
 
@@ -24,7 +25,7 @@ PmergeMe::PmergeMe(const PmergeMe &rhs) {
 }
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {
-	this->_l = rhs._l;
+	this->_d = rhs._d;
 	this->_v = rhs._v;
 	return *this;
 }
@@ -36,10 +37,12 @@ PmergeMe::~PmergeMe() {
 
 /* Constructor ============================================================= */
 PmergeMe::PmergeMe(char *argv[]) {
-	for (int i = 1; argv[i]; i++) { int val = std::atoi(std::string(argv[i]).c_str());
+	this->_size = 0;
+	for (int i = 1; argv[i]; i++) {
+		int val = std::atoi(std::string(argv[i]).c_str());
 
 		this->_v.push_back(val);
-		this->_l.push_back(val);
+		this->_d.push_back(val);
 		this->_size++;
 	}
 	return ;
@@ -56,10 +59,10 @@ std::ostream &operator<<(std::ostream &o, const std::vector<int> v) {
 	return o;
 }
 
-std::ostream &operator<<(std::ostream &o, const std::list<int> l) {
-	std::list<int>::const_iterator it = l.begin();
+std::ostream &operator<<(std::ostream &o, const std::deque<int> d) {
+	std::deque<int>::const_iterator it = d.begin();
 
-	for (; it != l.end(); it++) {
+	for (; it != d.end(); it++) {
 		o << *it << " ";
 	}
 	return o;
@@ -76,20 +79,22 @@ std::ostream &operator<<(std::ostream &o, const std::vector<intPair > v) {
 /* ========================================================================== */
 
 /* Accessors ================================================================ */
-std::vector<int> PmergeMe::getVector(void) const {
-	return this->_v;
+std::vector<int> PmergeMe::getVector(void) const { return this->_v; }
+
+std::deque<int> PmergeMe::getDeque(void) const { return this->_d; }
+
+double PmergeMe::getVectorTime(void) {
+	return this->_vectorTime / (double)(CLOCKS_PER_SEC / 1000);
 }
 
-std::list<int> PmergeMe::getList(void) const {
-	return this->_l;
+double PmergeMe::getDequeTime(void) {
+	return this->_dequeTime / (double)(CLOCKS_PER_SEC / 1000);
 }
+
+int PmergeMe::getSize(void) { return this->_size; }
 /* ========================================================================== */
 
 /* Auxiliary functions ====================================================== */
-inline static void validateChar(const char c) {
-	std::isdigit(c) ? void(c) : throw std::logic_error("Invalid input!");
-}
-
 inline static void checkForDuplicates(const std::vector<int> &v) {
 	std::vector<int> sortedVec = v;
 	std::sort(sortedVec.begin(), sortedVec.end());
@@ -101,6 +106,22 @@ inline static void checkForDuplicates(const std::vector<int> &v) {
 	}
 	return ;
 }
+
+inline static void validateChar(const char c) {
+	std::isdigit(c) ? void(c) : throw std::logic_error("Invalid input!");
+}
+
+inline static unsigned long
+jacobsthal(int n) {
+	if (n == 0)
+		return 0;
+	if (n == 1)
+		return 1;
+	return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
+}
+
+inline static bool
+isLeftover(const intPair pair) { return pair.first == -1; }
 /* ========================================================================== */
 
 /* Static functions ========================================================= */
@@ -119,7 +140,9 @@ void PmergeMe::validateInput(int argc, char **argv) {
 }
 /* ========================================================================== */
 
+// https://www.geeksforgeeks.org/merge-sort/
 // https://en.wikipedia.org/wiki/Merge-insertion_sort
+// The Art of Computer Programming, Vol. 3: Sorting and Searching (2nd ed.), pp. 184–186
 /* Ford-Johnson Algorithm for Vector ======================================== */
 /* ------------------------------------------------------------------------ 1 */
 inline static std::vector<intPair>
@@ -134,7 +157,6 @@ makePairs(const std::vector<int> &v) {
 }
 /* -------------------------------------------------------------------------- */
 
-// pair<small, big>
 /* ------------------------------------------------------------------------ 2 */
 inline static void
 sortPairs(std::vector<intPair> &pairs) {
@@ -149,7 +171,6 @@ sortPairs(std::vector<intPair> &pairs) {
 }
 /* -------------------------------------------------------------------------- */
 
-// https://www.geeksforgeeks.org/merge-sort/
 /* ------------------------------------------------------------------------ 3 */
 inline static void
 merge(std::vector<intPair > &pairs, int begin, int mid, int end) {
@@ -203,10 +224,10 @@ createMainChainAndPend(std::vector<intPair> &pairs) {
 	std::vector<int> &mainChain = mainChainAndPend.first;
 	std::vector<int> &pend = mainChainAndPend.second;
 
-	for (intPairIt it = pairs.begin(); it != pairs.end(); it++) {
-		mainChain.push_back(it->second);
+	for (vIntPairIt it = pairs.begin(); it != pairs.end(); it++) {
 		if (it->first == -1)
 			continue ;
+		mainChain.push_back(it->second);
 		pend.push_back(it->first);
 	}
 	return mainChainAndPend;
@@ -214,15 +235,6 @@ createMainChainAndPend(std::vector<intPair> &pairs) {
 /* -------------------------------------------------------------------------- */
 
 /* ------------------------------------------------------------------------ 5 */
-inline static unsigned long
-jacobsthal(int n) {
-	if (n == 0)
-		return 0;
-	if (n == 1)
-		return 1;
-	return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
-}
-
 inline static std::vector<int>
 generateJacobSequence(std::vector<int> pend) {
 	std::vector<int> jacobSequence;
@@ -243,6 +255,7 @@ insertPendIntoMainChain(vectorPair &mainChainAndPend) {
 		mainChain.begin(),
 		pend.front()
 	); // Insert first element
+	pend.erase(pend.begin());
 
 	std::vector<int> jacobSequence
 		= generateJacobSequence(mainChainAndPend.second);
@@ -275,20 +288,228 @@ insertPendIntoMainChain(vectorPair &mainChainAndPend) {
 }
 /* -------------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------------ 6 */
+inline static bool
+hasLeftover(std::vector<intPair> pairs) {
+	vIntPairIt it = pairs.begin();
+	for (; it != pairs.end(); it++) {
+		if (it->first == -1)
+			return true;
+	}
+	return false;
+}
+
+inline static void
+insertLeftover(std::vector<int> &S, std::vector<intPair> pairs) {
+	vIntPairIt pIt = std::find_if(pairs.begin(), pairs.end(), isLeftover);
+	std::vector<int>::iterator it
+		= std::upper_bound(S.begin(), S.end(), pIt->second);
+	S.insert(it, pIt->second);
+}
+/* -------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------ Wrapper */
 void PmergeMe::vMergeInsertionSort(void) {
 	std::vector<int> S;
 	vectorPair mainChainAndPend;
 	
+	this->_vectorTime = clock();
+
 	std::vector<intPair> pairs = makePairs(this->_v); // 1
 	sortPairs(pairs);                                 // 2
 	mergeSort(pairs, 0, pairs.size() - 1);            // 3
 	mainChainAndPend = createMainChainAndPend(pairs); // 4
 	S = insertPendIntoMainChain(mainChainAndPend);    // 5
-	// if (hasLeftover(pairs))                        // 6
-	// 	insertLeftover(S);
+	if (hasLeftover(pairs))
+		insertLeftover(S, pairs);                     // 6
 	this->_v = S;
+
+	this->_vectorTime = clock() - this->_vectorTime;
 	return ;
 }
 /* -------------------------------------------------------------------------- */
 /* ========================================================================== */
+
+/* Ford-Johnson Algorithm for list ======================================== */
+/* ------------------------------------------------------------------------ 1 */
+inline static std::deque<intPair>
+makePairs(const std::deque<int> &d) {
+	std::deque<intPair > pairs;
+
+	for (std::deque<int>::size_type i = 0; i + 1 < d.size(); i += 2)
+		pairs.push_back(std::make_pair(d[i], d[i + 1]));
+	if (d.size() % 2 != 0)
+		pairs.push_back(std::make_pair(*(d.end() - 1), -1));
+	return pairs;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------ 2 */
+inline static void
+sortPairs(std::deque<intPair> &pairs) {
+	std::deque<intPair >::iterator it = pairs.begin();
+
+	for (; it != pairs.end(); it++) {
+		it->first > it->second
+			? std::swap(it->first, it->second)
+			: (void) it;
+	}
+	return ;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------ 3 */
+inline static void
+merge(std::deque<intPair > &pairs, int begin, int mid, int end) {
+	std::size_t leftArrayIndex = 0;
+	std::size_t rightArrayIndex = 0;
+	std::size_t mergedArrayIndex = begin;
+
+	std::deque<intPair >
+		leftArray(pairs.begin() + begin, pairs.begin() + mid + 1),
+		rightArray(pairs.begin() + mid + 1, pairs.begin() + end + 1);
+
+	for (;
+		leftArrayIndex < leftArray.size()
+		&& rightArrayIndex < rightArray.size(); mergedArrayIndex++
+		) {
+		if (leftArray[leftArrayIndex].second <= rightArray[rightArrayIndex].second) {
+			pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
+			leftArrayIndex++;
+		} else {
+			pairs[mergedArrayIndex] = rightArray[rightArrayIndex];
+			rightArrayIndex++;
+		}
+	}
+	for (; leftArrayIndex < leftArray.size(); leftArrayIndex++) {
+		pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
+		mergedArrayIndex++;
+	}
+	for (; rightArrayIndex < rightArray.size(); rightArrayIndex++) {
+		pairs[mergedArrayIndex] = rightArray[rightArrayIndex];
+		mergedArrayIndex++;
+	}
+	return ;
+}
+
+inline static void
+mergeSort(std::deque<intPair > &pairs, int begin, int end) {
+	if (begin >= end)
+		return ;
+	int mid = begin + (end - begin) / 2;
+	mergeSort(pairs, begin, mid);
+	mergeSort(pairs, mid + 1, end);
+	merge(pairs, begin, mid, end);
+	return ;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------ 4 */
+inline static dequePair
+createMainChainAndPend(std::deque<intPair> &pairs) {
+	dequePair mainChainAndPend;
+	std::deque<int> &mainChain = mainChainAndPend.first;
+	std::deque<int> &pend = mainChainAndPend.second;
+
+	for (dIntPairIt it = pairs.begin(); it != pairs.end(); it++) {
+		if (it->first == -1)
+			continue ;
+		mainChain.push_back(it->second);
+		pend.push_back(it->first);
+	}
+	return mainChainAndPend;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------ 5 */
+inline static std::deque<int>
+generateJacobSequence(std::deque<int> pend) {
+	std::deque<int> jacobSequence;
+	int jacobIndex = 3;
+	
+	while (jacobsthal(jacobIndex) < pend.size() - 1) {
+		jacobSequence.push_back(jacobsthal(jacobIndex));
+		jacobIndex++;
+	}
+	return jacobSequence;
+}
+
+inline static std::deque<int>
+insertPendIntoMainChain(dequePair &mainChainAndPend) {
+	std::deque<int> &mainChain = mainChainAndPend.first;
+	std::deque<int> &pend = mainChainAndPend.second;
+	mainChain.insert(
+		mainChain.begin(),
+		pend.front()
+	); // Insert first element
+	pend.erase(pend.begin());
+
+	std::deque<int> jacobSequence
+		= generateJacobSequence(mainChainAndPend.second);
+	std::deque<int> indexSequence;
+	bool isJacob = true;
+	std::deque<int>::iterator it;
+	int item;
+
+	for (unsigned long i = 0; i < pend.size(); i++) {
+		if (jacobSequence.size() != 0 && isJacob != true) {
+			indexSequence.push_back(jacobSequence[0]);
+			item = pend[jacobSequence[0] - 1];
+			jacobSequence.pop_back();
+			isJacob = true;
+		} else {
+			if (std::find(indexSequence.begin(), indexSequence.end(), i)
+				!= indexSequence.end())
+				i++;
+			if (i == 0)
+				item = *(pend.end() - 1);
+			else
+				item = pend[i - 1];
+			indexSequence.push_back(i);
+			isJacob = false;
+		}
+		it = std::upper_bound(mainChain.begin(), mainChain.end(), item);
+		mainChain.insert(it, item);
+	}
+	return mainChain;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------ 6 */
+inline static bool
+hasLeftover(std::deque<intPair> pairs) {
+	dIntPairIt it = pairs.begin();
+	for (; it != pairs.end(); it++) {
+		if (it->first == -1)
+			return true;
+	}
+	return false;
+}
+
+inline static void
+insertLeftover(std::deque<int> &S, std::deque<intPair> pairs) {
+	dIntPairIt pIt = std::find_if(pairs.begin(), pairs.end(), isLeftover);
+	std::deque<int>::iterator it
+		= std::upper_bound(S.begin(), S.end(), pIt->second);
+	S.insert(it, pIt->second);
+}
+/* -------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------ Wrapper */
+void PmergeMe::dMergeInsertionSort(void) {
+	std::deque<int> S;
+	dequePair mainChainAndPend;
+	
+	this->_dequeTime = clock();
+
+	std::deque<intPair> pairs = makePairs(this->_d);  // 1
+	sortPairs(pairs);                                 // 2
+	mergeSort(pairs, 0, pairs.size() - 1);            // 3
+	mainChainAndPend = createMainChainAndPend(pairs); // 4
+	S = insertPendIntoMainChain(mainChainAndPend);    // 5
+	if (hasLeftover(pairs))
+		insertLeftover(S, pairs);                     // 6
+	this->_d = S;
+
+	this->_dequeTime = clock() - this->_vectorTime;
+	return ;
+}
+/* -------------------------------------------------------------------------- */
