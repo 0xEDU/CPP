@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:14:17 by etachott          #+#    #+#             */
-/*   Updated: 2023/07/01 04:14:58 by etachott         ###   ########.fr       */
+/*   Updated: 2023/07/01 04:16:41 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,14 +235,6 @@ generateJacobSequence(std::vector<int> pend) {
 	return jacobSequence;
 }
 
-// inline static std::vector<int>::iterator
-// bissect(std::vector<int> mainChain) {
-// 	std::vector<int>::iterator it;
-//
-// 	
-// 	return it;
-// }
-
 inline static std::vector<int>
 insertPendIntoMainChain(vectorPair &mainChainAndPend) {
 	std::vector<int> &mainChain = mainChainAndPend.first;
@@ -276,12 +268,9 @@ insertPendIntoMainChain(vectorPair &mainChainAndPend) {
 			indexSequence.push_back(i);
 			isJacob = false;
 		}
-		// it = std::find(mainChain.begin(), mainChain.end(), item);
-		// it = bissect(mainChain);
 		it = std::upper_bound(mainChain.begin(), mainChain.end(), item);
 		mainChain.insert(it, item);
 	}
-	// std::cout << "Jacob: " << jacobSequence << std::endl;
 	return mainChain;
 }
 /* -------------------------------------------------------------------------- */
@@ -293,14 +282,9 @@ void PmergeMe::vMergeInsertionSort(void) {
 	vectorPair mainChainAndPend;
 	
 	sortPairs(pairs); // 2
-	// std::cout << "Before: \n" << pairs << std::endl;
 	mergeSort(pairs, 0, pairs.size() - 1); // 3
 	mainChainAndPend = createMainChainAndPend(pairs); // 4
-	// std::cout << "After: \n" << pairs << std::endl;
-
 	this->_v = insertPendIntoMainChain(mainChainAndPend); //5
-	// std::cout << "Main Chain: " << mainChainAndPend.first << std::endl;
-	// std::cout << "Pend: " << mainChainAndPend.second << std::endl;
 	return ;
 }
 /* -------------------------------------------------------------------------- */
