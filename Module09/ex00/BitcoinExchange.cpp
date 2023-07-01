@@ -6,12 +6,13 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 08:12:25 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/26 12:57:24 by etachott         ###   ########.fr       */
+/*   Updated: 2023/07/01 17:14:37 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+/* Canonical form =========================================================== */
 BitcoinExchange::BitcoinExchange()
 	: _dbMap(std::map<int, double>()),
 	_inputMap(std::map<int, double>()) {
@@ -34,7 +35,9 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs) {
 BitcoinExchange::~BitcoinExchange() {
 	return ;
 }
+/* ========================================================================== */
 
+/* Exceptions =============================================================== */
 const char *BitcoinExchange::DatabaseNotFound::what() const throw() {
 	return ("Error: Database not found!");
 }
@@ -42,7 +45,9 @@ const char *BitcoinExchange::DatabaseNotFound::what() const throw() {
 const char *BitcoinExchange::FileNotFound::what() const throw() {
 	return ("Error: Input file not found!");
 }
+/* ========================================================================== */
 
+/* Auxiliary functions ====================================================== */
 static std::string removeDash(std::string str) {
 	str.erase(
 		std::remove(str.begin(), str.end(), '-'),
@@ -51,7 +56,9 @@ static std::string removeDash(std::string str) {
 	std::string s = str;
 	return (s);
 }
+/* ========================================================================== */
 
+/* Database load ============================================================ */
 void BitcoinExchange::loadDB(const std::string db) {
 	std::ifstream input(db.c_str());
 	std::string line;
@@ -71,7 +78,9 @@ void BitcoinExchange::loadDB(const std::string db) {
 	}
 	return ;
 }
+/* ========================================================================== */
 
+/* File processing ========================================================== */
 inline static bool isLeapYear(const int year) {
 	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
@@ -159,3 +168,4 @@ void BitcoinExchange::processFile(const std::string file) {
 			calculatePrice(date, dValue);
 	}
 }
+/* ========================================================================= */
