@@ -6,11 +6,12 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:14:17 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/30 15:09:10 by etachott         ###   ########.fr       */
+/*   Updated: 2023/07/01 04:14:58 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <algorithm>
 
 /* Canonical Form =========================================================== */
 PmergeMe::PmergeMe() : _v(std::vector<int>(0)), _l(std::list<int>(0)) {
@@ -35,8 +36,7 @@ PmergeMe::~PmergeMe() {
 
 /* Constructor ============================================================= */
 PmergeMe::PmergeMe(char *argv[]) {
-	for (int i = 1; argv[i]; i++) {
-		int val = std::atoi(std::string(argv[i]).c_str());
+	for (int i = 1; argv[i]; i++) { int val = std::atoi(std::string(argv[i]).c_str());
 
 		this->_v.push_back(val);
 		this->_l.push_back(val);
@@ -163,8 +163,7 @@ merge(std::vector<intPair > &pairs, int begin, int mid, int end) {
 
 	for (;
 		leftArrayIndex < leftArray.size()
-		&& rightArrayIndex < rightArray.size();
-		mergedArrayIndex++
+		&& rightArrayIndex < rightArray.size(); mergedArrayIndex++
 		) {
 		if (leftArray[leftArrayIndex].second <= rightArray[rightArrayIndex].second) {
 			pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
@@ -215,13 +214,75 @@ createMainChainAndPend(std::vector<intPair> &pairs) {
 /* -------------------------------------------------------------------------- */
 
 /* ------------------------------------------------------------------------ 5 */
-inline static void
+inline static unsigned long
+jacobsthal(int n) {
+	if (n == 0)
+		return 0;
+	if (n == 1)
+		return 1;
+	return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
+}
+
+inline static std::vector<int>
+generateJacobSequence(std::vector<int> pend) {
+	std::vector<int> jacobSequence;
+	int jacobIndex = 3;
+	
+	while (jacobsthal(jacobIndex) < pend.size() - 1) {
+		jacobSequence.push_back(jacobsthal(jacobIndex));
+		jacobIndex++;
+	}
+	return jacobSequence;
+}
+
+// inline static std::vector<int>::iterator
+// bissect(std::vector<int> mainChain) {
+// 	std::vector<int>::iterator it;
+//
+// 	
+// 	return it;
+// }
+
+inline static std::vector<int>
 insertPendIntoMainChain(vectorPair &mainChainAndPend) {
-	mainChainAndPend.first.insert(
-		mainChainAndPend.first.begin(),
-		mainChainAndPend.second.front()
+	std::vector<int> &mainChain = mainChainAndPend.first;
+	std::vector<int> &pend = mainChainAndPend.second;
+	mainChain.insert(
+		mainChain.begin(),
+		pend.front()
 	); // Insert first element
-	return ;
+
+	std::vector<int> jacobSequence
+		= generateJacobSequence(mainChainAndPend.second);
+	std::vector<int> indexSequence;
+	bool isJacob = true;
+	std::vector<int>::iterator it;
+	int item;
+
+	for (unsigned long i = 0; i < pend.size(); i++) {
+		if (jacobSequence.size() != 0 && isJacob != true) {
+			indexSequence.push_back(jacobSequence[0]);
+			item = pend[jacobSequence[0] - 1];
+			jacobSequence.pop_back();
+			isJacob = true;
+		} else {
+			if (std::find(indexSequence.begin(), indexSequence.end(), i)
+				!= indexSequence.end())
+				i++;
+			if (i == 0)
+				item = *(pend.end() - 1);
+			else
+				item = pend[i - 1];
+			indexSequence.push_back(i);
+			isJacob = false;
+		}
+		// it = std::find(mainChain.begin(), mainChain.end(), item);
+		// it = bissect(mainChain);
+		it = std::upper_bound(mainChain.begin(), mainChain.end(), item);
+		mainChain.insert(it, item);
+	}
+	// std::cout << "Jacob: " << jacobSequence << std::endl;
+	return mainChain;
 }
 /* -------------------------------------------------------------------------- */
 
@@ -232,14 +293,14 @@ void PmergeMe::vMergeInsertionSort(void) {
 	vectorPair mainChainAndPend;
 	
 	sortPairs(pairs); // 2
-	std::cout << "Before: \n" << pairs << std::endl;
+	// std::cout << "Before: \n" << pairs << std::endl;
 	mergeSort(pairs, 0, pairs.size() - 1); // 3
 	mainChainAndPend = createMainChainAndPend(pairs); // 4
-	std::cout << "After: \n" << pairs << std::endl;
+	// std::cout << "After: \n" << pairs << std::endl;
 
-	insertPendIntoMainChain(mainChainAndPend); //5
-	std::cout << "Main Chain: " << mainChainAndPend.first << std::endl;
-	std::cout << "Pend: " << mainChainAndPend.second << std::endl;
+	this->_v = insertPendIntoMainChain(mainChainAndPend); //5
+	// std::cout << "Main Chain: " << mainChainAndPend.first << std::endl;
+	// std::cout << "Pend: " << mainChainAndPend.second << std::endl;
 	return ;
 }
 /* -------------------------------------------------------------------------- */

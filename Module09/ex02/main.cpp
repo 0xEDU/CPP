@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:12:59 by etachott          #+#    #+#             */
-/*   Updated: 2023/06/27 17:05:29 by etachott         ###   ########.fr       */
+/*   Updated: 2023/07/01 04:14:11 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(int argc, char *argv[]) {
 
 		std::cout << "Before: " << pme.getVector() << std::endl;
 		pme.vMergeInsertionSort();
+		std::cout << "After: " << pme.getVector() << std::endl;
 		// pme.lMergeInsertionSort();
 		// std::cout << "After: " << pme.getVector() << std::endl;
 		// std::cout << "Time to precess a range of " << pme.getSize()
