@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:14:17 by etachott          #+#    #+#             */
-/*   Updated: 2023/07/01 17:02:51 by edu              ###   ########.fr       */
+/*   Updated: 2023/07/02 15:40:30 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,9 +140,12 @@ void PmergeMe::validateInput(int argc, char **argv) {
 }
 /* ========================================================================== */
 
+// References:
+//
+// The Art of Computer Programming, Vol. 3: Sorting and Searching (2nd ed.), pp. 184–186
+//
 // https://www.geeksforgeeks.org/merge-sort/
 // https://en.wikipedia.org/wiki/Merge-insertion_sort
-// The Art of Computer Programming, Vol. 3: Sorting and Searching (2nd ed.), pp. 184–186
 /* Ford-Johnson Algorithm for Vector ======================================== */
 /* ------------------------------------------------------------------------ 1 */
 inline static std::vector<intPair>
@@ -174,8 +177,8 @@ sortPairs(std::vector<intPair> &pairs) {
 /* ------------------------------------------------------------------------ 3 */
 inline static void
 merge(std::vector<intPair > &pairs, int begin, int mid, int end) {
-	std::size_t leftArrayIndex = 0;
-	std::size_t rightArrayIndex = 0;
+	std::size_t leftArrayIdx = 0;
+	std::size_t rightArrayIdx = 0;
 	std::size_t mergedArrayIndex = begin;
 
 	std::vector<intPair >
@@ -183,23 +186,24 @@ merge(std::vector<intPair > &pairs, int begin, int mid, int end) {
 		rightArray(pairs.begin() + mid + 1, pairs.begin() + end + 1);
 
 	for (;
-		leftArrayIndex < leftArray.size()
-		&& rightArrayIndex < rightArray.size(); mergedArrayIndex++
+		leftArrayIdx < leftArray.size()
+		&& rightArrayIdx < rightArray.size(); mergedArrayIndex++
 		) {
-		if (leftArray[leftArrayIndex].second <= rightArray[rightArrayIndex].second) {
-			pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
-			leftArrayIndex++;
+		if (leftArray[leftArrayIdx].second <= rightArray[rightArrayIdx].second)
+		{
+			pairs[mergedArrayIndex] = leftArray[leftArrayIdx];
+			leftArrayIdx++;
 		} else {
-			pairs[mergedArrayIndex] = rightArray[rightArrayIndex];
-			rightArrayIndex++;
+			pairs[mergedArrayIndex] = rightArray[rightArrayIdx];
+			rightArrayIdx++;
 		}
 	}
-	for (; leftArrayIndex < leftArray.size(); leftArrayIndex++) {
-		pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
+	for (; leftArrayIdx < leftArray.size(); leftArrayIdx++) {
+		pairs[mergedArrayIndex] = leftArray[leftArrayIdx];
 		mergedArrayIndex++;
 	}
-	for (; rightArrayIndex < rightArray.size(); rightArrayIndex++) {
-		pairs[mergedArrayIndex] = rightArray[rightArrayIndex];
+	for (; rightArrayIdx < rightArray.size(); rightArrayIdx++) {
+		pairs[mergedArrayIndex] = rightArray[rightArrayIdx];
 		mergedArrayIndex++;
 	}
 	return ;
@@ -329,7 +333,7 @@ void PmergeMe::vMergeInsertionSort(void) {
 /* -------------------------------------------------------------------------- */
 /* ========================================================================== */
 
-/* Ford-Johnson Algorithm for list ======================================== */
+/* Ford-Johnson Algorithm for List ========================================== */
 /* ------------------------------------------------------------------------ 1 */
 inline static std::deque<intPair>
 makePairs(const std::deque<int> &d) {
@@ -360,8 +364,8 @@ sortPairs(std::deque<intPair> &pairs) {
 /* ------------------------------------------------------------------------ 3 */
 inline static void
 merge(std::deque<intPair > &pairs, int begin, int mid, int end) {
-	std::size_t leftArrayIndex = 0;
-	std::size_t rightArrayIndex = 0;
+	std::size_t leftArrayIdx = 0;
+	std::size_t rightArrayIdx = 0;
 	std::size_t mergedArrayIndex = begin;
 
 	std::deque<intPair >
@@ -369,23 +373,24 @@ merge(std::deque<intPair > &pairs, int begin, int mid, int end) {
 		rightArray(pairs.begin() + mid + 1, pairs.begin() + end + 1);
 
 	for (;
-		leftArrayIndex < leftArray.size()
-		&& rightArrayIndex < rightArray.size(); mergedArrayIndex++
+		leftArrayIdx < leftArray.size()
+		&& rightArrayIdx < rightArray.size(); mergedArrayIndex++
 		) {
-		if (leftArray[leftArrayIndex].second <= rightArray[rightArrayIndex].second) {
-			pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
-			leftArrayIndex++;
+		if (leftArray[leftArrayIdx].second <= rightArray[rightArrayIdx].second)
+		{
+			pairs[mergedArrayIndex] = leftArray[leftArrayIdx];
+			leftArrayIdx++;
 		} else {
-			pairs[mergedArrayIndex] = rightArray[rightArrayIndex];
-			rightArrayIndex++;
+			pairs[mergedArrayIndex] = rightArray[rightArrayIdx];
+			rightArrayIdx++;
 		}
 	}
-	for (; leftArrayIndex < leftArray.size(); leftArrayIndex++) {
-		pairs[mergedArrayIndex] = leftArray[leftArrayIndex];
+	for (; leftArrayIdx < leftArray.size(); leftArrayIdx++) {
+		pairs[mergedArrayIndex] = leftArray[leftArrayIdx];
 		mergedArrayIndex++;
 	}
-	for (; rightArrayIndex < rightArray.size(); rightArrayIndex++) {
-		pairs[mergedArrayIndex] = rightArray[rightArrayIndex];
+	for (; rightArrayIdx < rightArray.size(); rightArrayIdx++) {
+		pairs[mergedArrayIndex] = rightArray[rightArrayIdx];
 		mergedArrayIndex++;
 	}
 	return ;
@@ -493,6 +498,7 @@ insertLeftover(std::deque<int> &S, std::deque<intPair> pairs) {
 	S.insert(it, pIt->second);
 }
 /* -------------------------------------------------------------------------- */
+
 /* ------------------------------------------------------------------ Wrapper */
 void PmergeMe::dMergeInsertionSort(void) {
 	std::deque<int> S;
@@ -509,7 +515,8 @@ void PmergeMe::dMergeInsertionSort(void) {
 		insertLeftover(S, pairs);                     // 6
 	this->_d = S;
 
-	this->_dequeTime = clock() - this->_vectorTime;
+	this->_dequeTime = clock() - this->_dequeTime;
 	return ;
 }
 /* -------------------------------------------------------------------------- */
+/* ========================================================================== */
